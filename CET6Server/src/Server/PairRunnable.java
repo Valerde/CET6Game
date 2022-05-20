@@ -17,7 +17,7 @@ import java.util.List;
  * @author: ykn
  * @date: 2022/5/17
  **/
-public class PairRunnable implements Runnable {
+public class PairRunnable {
     private Socket s1 = null;
     private Socket s2 = null;
     public GetWords getWords = null;
@@ -26,38 +26,39 @@ public class PairRunnable implements Runnable {
     private List<Player> playerList = null;
 
     public PairRunnable(Socket s1, Socket s2) {
+
         this.s1 = s1;
         this.s2 = s2;
         try {
+            getWords = new GetWords();
             player1 = new Player(s1);
             player2 = new Player(s2);
             player1.start();
             player2.start();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         playerList = new ArrayList<>();
         playerList.add(player1);
         playerList.add(player2);
+        String word = getWords.OneWordMsgToTrans();
+
+        player1.ps.println("WORD:" + word + ": ");
+        player2.ps.println("WORD:" + word + ": ");
     }
 
-    @Override
-    public void run() {
-        while (true) {
-            String word = getWords.OneWordMsgToTrans();
-
-            player1.ps.println(word);
-            player2.ps.println(word);
-        }
-
-    }
+//    @Override
+//    public void run() {
+//
+//    }
 
     class Player extends Thread {
         PrintStream ps = null;
         BufferedReader br = null;
+        int score = 10;
 
         public Player(Socket s) throws IOException {
-            String word = getWords.OneWordMsgToTrans();
+            //String word = getWords.OneWordMsgToTrans();
             ps = new PrintStream(s.getOutputStream());
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
@@ -69,55 +70,7 @@ public class PairRunnable implements Runnable {
             while (true) {
                 try {
                     String msg = br.readLine();
-                    switch (msg) {
-
-                        case ScoreStatus.REDUCT_ONR_POINT: {
-                            String word = getWords.OneWordMsgToTrans();
-                            for (Player p : playerList) {
-                                p.ps.println("WORD: " + word);
-                                p.ps.println(ScoreStatus.REDUCT_ONR_POINT + ": ");
-                            }
-                            break;
-                        }
-
-                        case ScoreStatus.ADD_ONE_POINT: {
-                            String word = getWords.OneWordMsgToTrans();
-                            for (Player p : playerList) {
-                                p.ps.println("WORD: " + word);
-                                if (p.equals(this)) {
-                                    this.ps.println(ScoreStatus.ADD_ONE_POINT + ": ");
-                                } else {
-                                    p.ps.println(ScoreStatus.KEEP_POINT);
-                                }
-                            }
-                            break;
-                        }
-
-                        case ScoreStatus.REDUCT_TWO_POINT: {
-                            String word = getWords.OneWordMsgToTrans();
-                            for (Player p : playerList) {
-                                p.ps.println("WORD: " + word);
-                                if (p.equals(this)) {
-                                    this.ps.println(ScoreStatus.REDUCT_TWO_POINT);
-                                } else {
-                                    p.ps.println(ScoreStatus.KEEP_POINT + ": ");
-                                }
-                            }
-                            break;
-                        }
-                        case ScoreStatus.LOSE: {
-                            for (Player p : playerList) {
-                                if (p.equals(this)) {
-                                    this.ps.println(ScoreStatus.LOSE + ": ");
-                                } else {
-                                    p.ps.println(ScoreStatus.WIN + ": ");
-                                }
-                            }
-                            break;
-                        }
-
-
-                    }//switch
+                    judge(msg);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -126,6 +79,70 @@ public class PairRunnable implements Runnable {
             }
         }
 
+        public void judge(String msg) {
+            switch (msg) {
 
+                case ScoreStatus.REDUCT_ONR_POINT: {
+                    String word = getWords.OneWordMsgToTrans();
+                    score -= 2;
+                    for (Player p : playerList) {
+                        p.ps.println("WORD:" + word + ": ");
+                        p.ps.println(ScoreStatus.REDUCT_ONR_POINT + ": :" + p.score);
+                    }
+                    break;
+                }
+
+                case ScoreStatus.ADD_ONE_POINT: {
+                    String word = getWords.OneWordMsgToTrans();
+                    score += 1;
+                    for (Player p : playerList) {
+                        p.ps.println("WORD:" + word + ": ");
+                        if (p.equals(this)) {
+                            this.ps.println(ScoreStatus.ADD_ONE_POINT + ": :" + p.score);
+                        } else {
+                            p.ps.println(ScoreStatus.KEEP_POINT + ": :" + p.score);
+                        }
+                    }
+                    break;
+                }
+
+                case ScoreStatus.REDUCT_TWO_POINT: {
+                    String word = getWords.OneWordMsgToTrans();
+                    for (Player p : playerList) {
+
+                        p.ps.println("WORD:" + word + ": ");
+                        if (p.equals(this)) {
+                            p.score -= 2;
+                            this.ps.println(ScoreStatus.REDUCT_TWO_POINT + ": :" + p.score);
+                        } else {
+                            //TODO  score计算错了,应该发自己的分数和对手的分数,或者不发自己的,只发对手的
+                            p.ps.println(ScoreStatus.KEEP_POINT + ": :" + p.score);
+                        }
+                    }
+                    break;
+                }
+                case ScoreStatus.LOSE: {
+                    for (Player p : playerList) {
+                        if (p.equals(this)) {
+                            this.ps.println(ScoreStatus.LOSE + ": :" + 0);
+                        } else {
+                            p.ps.println(ScoreStatus.WIN + ": :" + p.score);
+                        }
+                    }
+                    break;
+                }
+                case ScoreStatus.KEEP_POINT: {
+                    String word = getWords.OneWordMsgToTrans();
+                    for (Player p : playerList) {
+                        p.ps.println("WORD:" + word + ": ");
+                        p.ps.println(ScoreStatus.KEEP_POINT + ": :" + p.score);
+                    }
+                    break;
+                }
+
+            }//switch
+        }
     }
+
+
 }

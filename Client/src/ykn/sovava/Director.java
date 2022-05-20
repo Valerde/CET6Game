@@ -14,7 +14,7 @@ import ykn.sovava.scene.Index;
  * date: 2022/5/18
  **/
 public class Director {
-    public static final double HEIGHT = 960, WIDTH = 640;
+    public static final double HEIGHT = 800, WIDTH = 640;
 
     private static Director instance = new Director();
 
@@ -40,7 +40,7 @@ public class Director {
         stage.setResizable(false);
         this.stage = stage;
 
-        //toIndex();
+        toIndex();
         stage.show();
     }
 

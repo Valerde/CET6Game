@@ -32,7 +32,7 @@ public class CETClient implements Runnable {
     public CETClient(Stage stage) {
         try {
             this.stage = stage;
-            s = new Socket(GetIP.getIP(), 12345);
+            s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
             new Thread(this).start();

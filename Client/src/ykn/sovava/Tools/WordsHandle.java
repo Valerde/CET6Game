@@ -18,16 +18,24 @@ public class WordsHandle {
     private String translation = null;
     private String englishIncomplete = null;
 
+//    private String english = "fine";
+//    private String translation = "好的";
+//    private String englishIncomplete = "f__e";
+
     /**
      * @description: 传过来单词与翻译
      * @author: ykn
      * @time: 2022/5/17 14:12
      */
     public WordsHandle(String msg) {
-        String[] words = msg.split("|");
+        String[] words = msg.split("\\|");
         english = words[0];
         translation = words[1];
         englishIncomplete = words[2];
+        System.out.println(english+"*"+translation+"*"+englishIncomplete);
+    }
+
+    public WordsHandle() {
     }
 
     public void setEnglish(String english) {
@@ -53,4 +61,6 @@ public class WordsHandle {
     public String getEnglishIncomplete() {
         return englishIncomplete;
     }
+
+
 }

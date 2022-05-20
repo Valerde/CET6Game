@@ -129,6 +129,6 @@ public class GetWords {
         }
 
         String englishIncomplete = handledEnglish.toString();
-        return english + "|-" + translation+"|"+englishIncomplete;
+        return english + "|-" + translation + "|" + englishIncomplete;
     }
 }
