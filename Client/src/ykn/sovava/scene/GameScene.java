@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
+import javafx.stage.WindowEvent;
 import ykn.sovava.Director;
 import ykn.sovava.Tools.GetIP;
 import ykn.sovava.Tools.ScoreStatus;
@@ -36,6 +37,7 @@ public class GameScene {
     Label playerInfo;
     Label scoreLabel;
     Button readyButton;
+    MyClient client;
 
     public void init(Stage stage) {
 
@@ -48,7 +50,7 @@ public class GameScene {
 //        label.setMinWidth(150);
         label.setPrefWidth(250);
         label.setLayoutY(0);
-        label.setLayoutX(175-label.getWidth()/2);
+        label.setLayoutX(175 - label.getWidth() / 2);
 
 
         //输入区
@@ -104,9 +106,30 @@ public class GameScene {
 
         AnchorPane root = new AnchorPane(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
         stage.getScene().setRoot(root);
+        //关闭UI线程时同时关闭各子线程
+
         stage.show();
-        new Thread(new MyClient(stage, label, textField, labelResult, labelTranslation, playerInfo, scoreLabel,readyButton)).start();
+        client = new MyClient(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
+        Thread t = new Thread(client);
+        t.start();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                client.ps.println("over");
+                System.exit(0);
+            }
+        });
 
     }
 
+    public void clear() {
+        client.f = false;
+        label = null;
+        textField = null;
+        labelResult = null;
+        labelTranslation = null;
+        playerInfo = null;
+        scoreLabel = null;
+        readyButton = null;
+    }
 }

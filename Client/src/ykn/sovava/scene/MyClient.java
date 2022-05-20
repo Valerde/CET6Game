@@ -1,35 +1,30 @@
 package ykn.sovava.scene;
 
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
 import ykn.sovava.Director;
 import ykn.sovava.Tools.GetIP;
-import ykn.sovava.Tools.GetRandom;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
+import ykn.sovava.Tools.WriteWA;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.util.Random;
-import java.util.Scanner;
 
 /**
- * @className: GameSceneUI
- * @description:
- * @author: ykn
- * @date: 2022/5/19
+ * className: GameSceneUI
+ * description:
+ * author: ykn
+ * date: 2022/5/19
  **/
 public class MyClient implements Runnable {
 
-    public Stage stage;
     public Label label;//TODO 把这个改为Canvas
     public TextField textField;
     public Label labelResult;
@@ -46,13 +41,12 @@ public class MyClient implements Runnable {
     public int Y = 0;
     public TextThread th;
     public static WordsHandle wh;
-    private int i = 1;
-    Boolean f = false;
+    public Boolean f = false;
 
-    public MyClient(Stage stage, Label label, TextField textField,
+    public MyClient(Label label, TextField textField,
                     Label labelResult, Label labelTranslation, Label playerInfo, Label scoreLabel, Button readyButton) {
         super();
-        this.stage = stage;
+
         this.label = label;
         this.textField = textField;
         this.labelResult = labelResult;
@@ -61,6 +55,7 @@ public class MyClient implements Runnable {
         this.scoreLabel = scoreLabel;
         this.readyButton = readyButton;
         myScore = otherScore = 10;
+
         try {
             s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
@@ -68,26 +63,19 @@ public class MyClient implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     public void run() {
         set();
-        //wh = new WordsHandle("csu|中南大学|___");
-//        th = new TextThread();
-//        th.start();
         textField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) { //判断是否按下回车
                 event.consume();
                 myAnswer = textField.getText();
-                i = 0;
                 textField.clear();
                 sendMSG(wh, myAnswer);
             }
         });
-
 
         readyButton.setOnAction(event -> {
             ps.println("ok");
@@ -96,6 +84,7 @@ public class MyClient implements Runnable {
 
             });
         });
+
         try {
             if (br.readLine().equals("herewego")) {
                 f = true;
@@ -114,10 +103,8 @@ public class MyClient implements Runnable {
     }
 
     private void getWords() {
-
-        String msg = null;
-
         try {
+            String msg = null;
             msg = br.readLine();
             String[] strs = msg.split(":");
             if (strs[0].equals("WORD")) {
@@ -165,11 +152,11 @@ public class MyClient implements Runnable {
                 labelResult.setText("Pass");
                 labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
             });
-            otherScore-=1;
-        }else {
-            otherScore = Integer.parseInt(s.split("-")[1]);
+            otherScore -= 1;
+        } else {
+            otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
         }
-        myScore = Integer.parseInt(s.split("-")[0]);
+        myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
 
         label.setText(wh.getEnglishIncomplete());
         labelTranslation.setText(wh.getTranslation());
@@ -188,7 +175,7 @@ public class MyClient implements Runnable {
     }
 
     private void set(Boolean flag, String s) {
-
+        Director.getInstance().gameOver(flag);
     }
 
     public void set() {
@@ -215,7 +202,6 @@ public class MyClient implements Runnable {
                         label.setLayoutY(Y);
                     });
                     if (Y >= 700) {
-                        //Thread.sleep(GetRandom.getRandom(time, 2 * time));
                         ps.println(ScoreStatus.KEEP_POINT);
                     }
                 } catch (Exception ex) {
@@ -225,7 +211,7 @@ public class MyClient implements Runnable {
     }
 
     public void sendMSG(WordsHandle wh, String answer) {
-        if (wh.getEnglish().equals(answer) || (i == 1 && answer.equals("csu"))) {
+        if (wh.getEnglish().equals(answer)) {
             ps.println(ScoreStatus.ADD_ONE_POINT);
             Platform.runLater(() -> {
                 labelResult.setText("Right");
@@ -233,6 +219,7 @@ public class MyClient implements Runnable {
             });
         } else {
             ps.println(ScoreStatus.REDUCT_TWO_POINT);
+            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
                 labelResult.setText("Wrong");
                 labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");

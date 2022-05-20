@@ -58,8 +58,9 @@ public class PairRunnable {
         Boolean sign = false;
         String word;
 
+        Boolean run = true;
+
         public Player(Socket s) throws IOException {
-            //String word = getWords.OneWordMsgToTrans();
             ps = new PrintStream(s.getOutputStream());
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
@@ -67,13 +68,17 @@ public class PairRunnable {
 
         @Override
         public void run() {
-            while (true) {
+            while (run) {
 
                 try {
 
                     msg = br.readLine();
                     if (msg.equals("ok")) {
                         sign = true;
+                    } else if (msg.equals("over")) {
+                        run = false;
+                        this.otherSide.run = false;
+                        continue;
                     }
 
                     if (this.sign && this.otherSide.sign) {
@@ -130,7 +135,7 @@ public class PairRunnable {
                 case ScoreStatus.LOSE: {
                     for (Player p : playerList) {
                         if (p.equals(this)) {
-                            this.ps.println(ScoreStatus.LOSE + ": :" + 0);
+                            this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
                         } else {
                             p.ps.println(ScoreStatus.WIN + ": :" + p.score + "-" + p.otherSide.score);
                         }
@@ -138,11 +143,7 @@ public class PairRunnable {
                     break;
                 }
                 case ScoreStatus.KEEP_POINT: {
-
-
                     this.score -= 1;
-
-
                     this.ps.println("WORD:" + words.get(count) + ": ");
                     count++;
                     this.ps.println(ScoreStatus.KEEP_POINT + ": :" + this.score + "-" + this.otherSide.score);

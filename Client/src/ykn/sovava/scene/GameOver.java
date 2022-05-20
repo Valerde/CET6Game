@@ -1,5 +1,6 @@
 package ykn.sovava.scene;
 
+import javafx.application.Platform;
 import ykn.sovava.controller.OverController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,11 +20,14 @@ public class GameOver {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Index.class.getResource("/fxml/gameover.fxml"));
             Parent root = fxmlLoader.load();
-            OverController overController = fxmlLoader.getController();
+            OverController OverController = fxmlLoader.getController();
             if (success){
-                //overController.flagSuccess();
+                OverController.flagSuccess();
             }
-            stage.getScene().setRoot(root);
+            Platform.runLater(()->{
+                stage.getScene().setRoot(root);
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ykn.sovava.scene.GameOver;
 import ykn.sovava.scene.GameScene;
 import ykn.sovava.scene.Index;
 
@@ -51,5 +52,10 @@ public class Director {
 
     public void gameStart() {
         gameScene.init(stage);
+    }
+
+    public void gameOver(boolean success) {
+        gameScene.clear();
+        GameOver.load(stage,success);
     }
 }
