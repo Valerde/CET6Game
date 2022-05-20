@@ -88,18 +88,11 @@ public class GetWords {
     public List<String> readRandomList() {
 
         List<String> wordCollection = new ArrayList<>();
-        String s = null;
-        String s1 = null, s2 = null;
-        int index = 0;
-
+        String s;
         for (int i = 0; i < collectionLen; i++) {
-            index = listRandom.get(i);
-            s = wordTotalByOrder.get(index);
-            try {
-                wordCollection.add(s + "|");//每个单词与意思用-分开,每组用|分开
-            } catch (Exception e) {
-                System.out.println("--------" + s2 + s1);
-            }
+            s=OneWordMsgToTrans();
+            wordCollection.add(s);
+            wordCollection.add(s);
         }
         return wordCollection;
     }

@@ -2,11 +2,14 @@ package ykn.sovava.scene;
 
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import ykn.sovava.Director;
 import ykn.sovava.Tools.GetIP;
+import ykn.sovava.Tools.GetRandom;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
 
@@ -15,6 +18,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @className: GameSceneUI
@@ -31,21 +36,21 @@ public class MyClient implements Runnable {
     public Label labelTranslation;
     public Label playerInfo;
     public Label scoreLabel;
+    public Button readyButton;
     public Socket s;
     public PrintStream ps;
     public BufferedReader br;
-    public int score;
+    public int myScore;
+    public int otherScore;
     public String myAnswer;
     public int Y = 0;
     public TextThread th;
     public static WordsHandle wh;
-    private String english = null;
-    private String translation = null;
-    private String englishIncomplete = null;
-
+    private int i = 1;
+    Boolean f = false;
 
     public MyClient(Stage stage, Label label, TextField textField,
-                    Label labelResult, Label labelTranslation, Label playerInfo, Label scoreLabel) {
+                    Label labelResult, Label labelTranslation, Label playerInfo, Label scoreLabel, Button readyButton) {
         super();
         this.stage = stage;
         this.label = label;
@@ -54,7 +59,8 @@ public class MyClient implements Runnable {
         this.labelTranslation = labelTranslation;
         this.playerInfo = playerInfo;
         this.scoreLabel = scoreLabel;
-        score = 10;
+        this.readyButton = readyButton;
+        myScore = otherScore = 10;
         try {
             s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
@@ -69,35 +75,59 @@ public class MyClient implements Runnable {
     @Override
     public void run() {
         set();
-        th = new TextThread();
-        th.start();
+        //wh = new WordsHandle("csu|中南大学|___");
+//        th = new TextThread();
+//        th.start();
         textField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) { //判断是否按下回车
                 event.consume();
                 myAnswer = textField.getText();
+                i = 0;
                 textField.clear();
                 sendMSG(wh, myAnswer);
             }
         });
 
-        while (true) {
+
+        readyButton.setOnAction(event -> {
+            ps.println("ok");
+            Platform.runLater(() -> {
+                readyButton.setText("already……");
+
+            });
+        });
+        try {
+            if (br.readLine().equals("herewego")) {
+                f = true;
+                Platform.runLater(() -> {
+                    readyButton.setText("playing……");
+                });
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        while (f) {
             getWords();
         }
 
     }
 
     private void getWords() {
-        //Platform.runLater(() -> {
+
         String msg = null;
+
         try {
             msg = br.readLine();
             String[] strs = msg.split(":");
             if (strs[0].equals("WORD")) {
                 wh = new WordsHandle(strs[1]);
-                String[] words = strs[1].split("\\|");
-                english = words[0];
-                translation = words[1];
-                englishIncomplete = words[2];
+                Platform.runLater(() -> {
+                    set(wh);
+                });
+
+                th = new TextThread();
+                th.start();
             } else {
                 switch (strs[0]) {
                     case ScoreStatus.ADD_ONE_POINT:
@@ -105,32 +135,11 @@ public class MyClient implements Runnable {
                     case ScoreStatus.REDUCT_ONR_POINT:
                     case ScoreStatus.REDUCT_TWO_POINT: {
                         Platform.runLater(() -> {
-                            set(wh, strs[2]);
+                            set(wh, strs[2], strs[0]);
                         });
-
-                        score = Integer.parseInt(strs[2]);
                         sendLose(strs[0]);
                         th = new TextThread();
                         th.start();
-//                        new Thread(() -> {
-//
-//                            Platform.runLater(() -> {
-//                                Boolean RUN = true;
-//                                Y = 0;
-//                                while (RUN) {
-//                                    try {
-//                                        Thread.sleep(100);
-//                                        Y += 5;
-//                                        label.setLayoutY(Y);
-//                                        if (Y == 700) {
-//                                            ps.println(ScoreStatus.KEEP_POINT);
-//                                            RUN=false;
-//                                        }
-//                                    } catch (Exception ex) {
-//                                    }
-//                                }
-//                            });
-//                        }).start();
                         break;
                     }
                     case ScoreStatus.WIN: {
@@ -147,17 +156,35 @@ public class MyClient implements Runnable {
             e.printStackTrace();
         }
 
-        //});
     }
 
 
-    private void set(WordsHandle wh, String s) {
-        label.setText(englishIncomplete);
-        labelTranslation.setText(translation);
-        scoreLabel.setText(score + " : " + s);
-        label.setLayoutY(0);
-        label.setLayoutX(100);
+    private void set(WordsHandle wh, String s, String status) {
+        if (status.equals(ScoreStatus.KEEP_POINT)) {
+            Platform.runLater(() -> {
+                labelResult.setText("Pass");
+                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+            });
+            otherScore-=1;
+        }else {
+            otherScore = Integer.parseInt(s.split("-")[1]);
+        }
+        myScore = Integer.parseInt(s.split("-")[0]);
 
+        label.setText(wh.getEnglishIncomplete());
+        labelTranslation.setText(wh.getTranslation());
+        scoreLabel.setText(myScore + " : " + otherScore);
+        label.setLayoutY(0);
+        label.setLayoutX(175 - label.getWidth() / 2);
+
+    }
+
+    private void set(WordsHandle wh) {
+        label.setText(wh.getEnglishIncomplete());
+        labelTranslation.setText(wh.getTranslation());
+        scoreLabel.setText(myScore + " : " + otherScore);
+        label.setLayoutY(0);
+        label.setLayoutX(175 - label.getWidth() / 2);
     }
 
     private void set(Boolean flag, String s) {
@@ -165,60 +192,58 @@ public class MyClient implements Runnable {
     }
 
     public void set() {
-        label.setText("___");
-        labelTranslation.setText("中南大学");
+        label.setText("incomplete word");
+        labelTranslation.setText("这里是翻译");
         scoreLabel.setText(10 + " : " + 10);
         label.setLayoutY(0);
-        label.setLayoutX(100);
+        label.setLayoutX(50);
     }
+
     private int time = 100;
-//    public class TextRunnable implements Runnable{
-//
-//        @Override
-//        public void run() {
-//
-//        }
-//    }
 
     public class TextThread extends Thread {
         Boolean RUN = true;
 
         public void run() {
             Y = 0;
-            time +=100;
+            time += 100;
             while (RUN) {
                 try {
                     Thread.sleep(time);
                     Y += 5;
-                    //System.out.println(Y);
-                    Platform.runLater(()->{
+                    Platform.runLater(() -> {
                         label.setLayoutY(Y);
                     });
-
                     if (Y >= 700) {
+                        //Thread.sleep(GetRandom.getRandom(time, 2 * time));
                         ps.println(ScoreStatus.KEEP_POINT);
-                        //RUN = false;
-                        //
                     }
                 } catch (Exception ex) {
                 }
             }
-
         }
     }
 
     public void sendMSG(WordsHandle wh, String answer) {
-        if (wh.getEnglish().equals(answer)) {
+        if (wh.getEnglish().equals(answer) || (i == 1 && answer.equals("csu"))) {
             ps.println(ScoreStatus.ADD_ONE_POINT);
-            score += 1;
+            Platform.runLater(() -> {
+                labelResult.setText("Right");
+                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: green;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+            });
         } else {
             ps.println(ScoreStatus.REDUCT_TWO_POINT);
+            Platform.runLater(() -> {
+                labelResult.setText("Wrong");
+                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+            });
         }
     }
 
     public void sendLose(String s) {
-        if (s.equals(ScoreStatus.REDUCT_ONR_POINT) || s.equals(ScoreStatus.REDUCT_TWO_POINT)) {
-            if (score <= 0) {
+        if (s.equals(ScoreStatus.REDUCT_ONR_POINT) || s.equals(ScoreStatus.REDUCT_TWO_POINT)
+                || s.equals(ScoreStatus.KEEP_POINT)) {
+            if (myScore <= 0) {
                 ps.println(ScoreStatus.LOSE);
             }
         }

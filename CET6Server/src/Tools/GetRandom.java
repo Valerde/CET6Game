@@ -14,6 +14,10 @@ import java.util.Set;
 public class GetRandom {
     private static Random rd = new Random();
 
+    public static double getRandom(double range){
+        return rd.nextDouble()+0.02;
+    }
+
     /**
      * @param: len
      * @description: 获得一个随机数
