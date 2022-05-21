@@ -1,7 +1,6 @@
 package getWords;
 
 import Tools.GetRandom;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,15 +28,13 @@ public class GetWords {
      */
     private static Map<Integer, String> wordTotalByOrder = null;
 
-
-    //private Map<String, String> wordCollection = null;
     public GetWords() throws Exception {
         listRandom = GetRandom.getArrayListRandom(total, collectionLen);
         wordTotalByOrder = readIn();
     }
 
     /**
-     * @description: 获取一次游戏的单词数
+     * description: 获取一次游戏的单词数
      * @return: int
      * @author: ykn
      * @time: 2022/5/17 13:51
@@ -47,8 +44,8 @@ public class GetWords {
     }
 
     /**
+     * description: 设置一次游戏的单词数
      * @param: collectionLen
-     * @description: 设置一次游戏的单词数
      * @author: ykn
      * @time: 2022/5/17 13:51
      */
@@ -57,8 +54,7 @@ public class GetWords {
     }
 
     /**
-     * @param:
-     * @description: 从文件中读取单词
+     * description: 从文件中读取单词
      * @return: java.util.Map<java.lang.Integer, java.lang.String>
      * @author: ykn
      * @time: 2022/5/17 13:50
@@ -69,7 +65,6 @@ public class GetWords {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String s = null;
         int i = 0;
-
         while ((s = br.readLine()) != null) {
             words.put(i, s);
             i++;
@@ -79,11 +74,10 @@ public class GetWords {
     }
 
     /**
-     * @param:
-     * @description: 随机获取单词
-     * @return: java.util.Map<java.lang.String, java.lang.String>
+     * Description: 随机获取一组单词
      * @author: ykn
-     * @time: 2022/5/17 13:49
+     * @date: 2022/5/21 14:28
+     * @return: java.util.List<java.lang.String>
      */
     public List<String> readRandomList() {
 
@@ -97,6 +91,13 @@ public class GetWords {
         return wordCollection;
     }
 
+    /**
+     * Description: 随机获取一个要发送的Word组合,
+     * 格式为english + "|-" + translation + "|" + englishIncomplete;
+     * @author: ykn
+     * @date: 2022/5/21 14:29
+     * @return: java.lang.String
+     */
     public String OneWordMsgToTrans() {
         int index = GetRandom.getRandom(total);
         String msg = wordTotalByOrder.get(index);

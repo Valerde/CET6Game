@@ -6,8 +6,8 @@ import java.util.Random;
 import java.util.Set;
 
 /**
+ * description: 获取随机数
  * @className: GetRandom
- * @description:
  * @author: ykn
  * @date: 2022/5/20
  **/
@@ -18,13 +18,7 @@ public class GetRandom {
         return rd.nextDouble() + 0.02;
     }
 
-    /**
-     * @param: len
-     * @description: 获得一个随机数
-     * @return: java.lang.Integer
-     * @author: ykn
-     * @time: 2022/5/4 19:17
-     */
+
     public static Integer getRandom(int range) {
         return rd.nextInt(range);
     }

@@ -10,7 +10,6 @@ import ykn.sovava.Tools.GetIP;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
 import ykn.sovava.Tools.WriteWA;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,10 +17,10 @@ import java.io.PrintStream;
 import java.net.Socket;
 
 /**
- * className: GameSceneUI
- * description:
- * author: ykn
- * date: 2022/5/19
+ * description: 客户端主要逻辑区
+ * @className: GameSceneUI
+ * @author: ykn
+ * @date: 2022/5/19
  **/
 public class MyClient implements Runnable {
 
@@ -102,6 +101,12 @@ public class MyClient implements Runnable {
 
     }
 
+    /**
+     * Description: 获得从服务器发来的消息并判定
+     * @author: ykn
+     * @date: 2022/5/21 14:18
+     * @return: void
+     */
     private void getWords() {
         try {
             String msg = null;
@@ -118,7 +123,7 @@ public class MyClient implements Runnable {
             } else {
                 switch (strs[0]) {
                     case ScoreStatus.ADD_ONE_POINT:
-                    case ScoreStatus.KEEP_POINT:
+                    case ScoreStatus.NO_ANSWER:
                     case ScoreStatus.REDUCT_ONR_POINT:
                     case ScoreStatus.REDUCT_TWO_POINT: {
                         Platform.runLater(() -> {
@@ -145,9 +150,8 @@ public class MyClient implements Runnable {
 
     }
 
-
     private void set(WordsHandle wh, String s, String status) {
-        if (status.equals(ScoreStatus.KEEP_POINT)) {
+        if (status.equals(ScoreStatus.NO_ANSWER)) {
             WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
                 labelResult.setText("Pass");
@@ -158,7 +162,6 @@ public class MyClient implements Runnable {
             otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
         }
         myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
-
         label.setText(wh.getEnglishIncomplete());
         labelTranslation.setText(wh.getTranslation());
         scoreLabel.setText(myScore + " : " + otherScore);
@@ -189,6 +192,11 @@ public class MyClient implements Runnable {
 
     private int time = 100;
 
+    /**
+     * Description: 单词掉落子线程
+     * @author: ykn
+     * @date: 2022/5/21 14:17
+     */
     public class TextThread extends Thread {
         Boolean RUN = true;
 
@@ -203,7 +211,7 @@ public class MyClient implements Runnable {
                         label.setLayoutY(Y);
                     });
                     if (Y >= 700) {
-                        ps.println(ScoreStatus.KEEP_POINT);
+                        ps.println(ScoreStatus.NO_ANSWER);
                     }
                 } catch (Exception ex) {
                 }
@@ -211,6 +219,14 @@ public class MyClient implements Runnable {
         }
     }
 
+    /**
+     * Description: 每次反馈服务器
+     * @author: ykn
+     * @date: 2022/5/21 14:16
+     * @param wh: WordHandle
+     * @param answer:  玩家输入的答案
+     * @return: void
+     */
     public void sendMSG(WordsHandle wh, String answer) {
         if (wh.getEnglish().equals(answer)) {
             ps.println(ScoreStatus.ADD_ONE_POINT);
@@ -228,9 +244,16 @@ public class MyClient implements Runnable {
         }
     }
 
+    /**
+     * Description: 判定游戏是否结束
+     * @author: ykn
+     * @date: 2022/5/21 14:14
+     * @param s: 来自于ScoreStatus
+     * @return: void
+     */
     public void sendLose(String s) {
         if (s.equals(ScoreStatus.REDUCT_ONR_POINT) || s.equals(ScoreStatus.REDUCT_TWO_POINT)
-                || s.equals(ScoreStatus.KEEP_POINT)) {
+                || s.equals(ScoreStatus.NO_ANSWER)) {
             if (myScore <= 0) {
                 ps.println(ScoreStatus.LOSE);
             }

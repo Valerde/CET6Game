@@ -4,11 +4,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * @className: ykn.sovava.Main
- * @description:
- * @author: ykn
- * @date: 2022/5/18
- **/
+ * Description: 程序入口
+ */
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {

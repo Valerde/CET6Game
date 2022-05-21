@@ -1,7 +1,4 @@
 import Server.Server;
-import getWords.GetWords;
-
-import java.util.Map;
 
 /**
  * @className: test
@@ -9,7 +6,7 @@ import java.util.Map;
  * @author: ykn
  * @date: 2022/5/4
  **/
-public class test {
+public class ServerMain {
     public static void main(String[] args) throws Exception {
         new Server();
     }

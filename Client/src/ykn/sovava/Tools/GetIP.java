@@ -7,8 +7,8 @@ import java.net.SocketException;
 import java.util.Enumeration;
 
 /**
+ * description:获得本机IP
  * @className: GetIP
- * @description:
  * @author: ykn
  * @date: 2022/5/17
  **/

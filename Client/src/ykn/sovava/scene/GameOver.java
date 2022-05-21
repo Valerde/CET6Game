@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
+ * description: 游戏结束加载界面
  * @className: GameOver
- * @description:
  * @author: ykn
  * @date: 2022/5/18
  **/

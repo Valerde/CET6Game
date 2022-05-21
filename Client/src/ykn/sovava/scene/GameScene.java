@@ -1,29 +1,17 @@
 package ykn.sovava.scene;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.stage.WindowEvent;
 import ykn.sovava.Director;
-import ykn.sovava.Tools.GetIP;
-import ykn.sovava.Tools.ScoreStatus;
-import ykn.sovava.Tools.WordsHandle;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
-import java.net.Socket;
-
 /**
+ * description: 游戏界面初始值
  * @className: GameScene
- * @description:
  * @author: ykn
  * @date: 2022/5/18
  **/
@@ -46,8 +34,6 @@ public class GameScene {
         label = new Label("f__e");
         label.setStyle("-fx-border-width: 3px;-fx-alignment: center;-fx-font-size: 25;-fx-border-radius: 15;-fx-border-color: blue");
         label.setPrefHeight(55);
-//        label.setMaxWidth(300);
-//        label.setMinWidth(150);
         label.setPrefWidth(250);
         label.setLayoutY(0);
         label.setLayoutX(175 - label.getWidth() / 2);
@@ -59,7 +45,6 @@ public class GameScene {
         textField.setLayoutX(350);
         textField.setLayoutY(500);
 
-
         labelResult = new Label("right");
         labelResult.setLayoutX(350);
         labelResult.setLayoutY(300);
@@ -67,9 +52,6 @@ public class GameScene {
         labelResult.setPrefHeight(50);
         labelResult.setText("----");
         labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
-
-        //labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
-
 
         labelTranslation = new Label("CF站怪帮教亏kg基层抗不");
         labelTranslation.setPrefWidth(Director.WIDTH);
@@ -103,15 +85,15 @@ public class GameScene {
         readyButton.setPrefWidth(200);
         readyButton.setStyle("-fx-background-color: aqua;-fx-font-size: 24;-fx-alignment:center ");
 
-
         AnchorPane root = new AnchorPane(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
         stage.getScene().setRoot(root);
-        //关闭UI线程时同时关闭各子线程
-
         stage.show();
+
         client = new MyClient(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
         Thread t = new Thread(client);
         t.start();
+
+        //关闭UI线程时同时关闭各子线程
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -122,6 +104,12 @@ public class GameScene {
 
     }
 
+    /**
+     * Description: 游戏结束清除界面
+     * @author: ykn
+     * @date: 2022/5/21 14:13
+     * @return: void
+     */
     public void clear() {
         client.f = false;
         label = null;

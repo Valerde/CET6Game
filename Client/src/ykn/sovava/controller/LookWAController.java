@@ -35,9 +35,14 @@ public class LookWAController {
         area.setText(readIn());
     }
 
-
+    /**
+     * Description: 读入错误过的单词
+     * @author: ykn
+     * @date: 2022/5/21 14:21
+     * @return: java.lang.String
+     */
     private String readIn()  {
-        File file = new File("D:\\yangkainan\\ykn\\JavaLearn\\CET6\\Client\\resource\\sound\\WA.txt");
+        File file = new File("D:\\yangkainan\\ykn\\JavaLearn\\CET6\\Client\\resource\\text\\WA.txt");
         List<String> words = new ArrayList<>();
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();

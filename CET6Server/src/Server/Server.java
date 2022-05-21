@@ -28,12 +28,10 @@ public class Server implements Runnable {
     public void run() {
         while (true) {
             try {
-
                 Socket s1 = ss.accept();
                 Socket s2 = ss.accept();
                 PairRunnable pra = new PairRunnable(s1, s2);
                 lPair.add(pra);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }

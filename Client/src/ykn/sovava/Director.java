@@ -10,10 +10,10 @@ import ykn.sovava.scene.Index;
 import ykn.sovava.scene.LookWAScene;
 
 /**
- * className: ykn.sovava.Director
- * dvsd
- * author: ykn
- * date: 2022/5/18
+ * description:导演类
+ *
+ * @author: ykn
+ * @date: 2022/5/18
  **/
 public class Director {
     public static final double HEIGHT = 800, WIDTH = 640;
@@ -31,6 +31,14 @@ public class Director {
         return instance;
     }
 
+    /**
+     * Description: 布局和画布舞台的初始化
+     *
+     * @param stage:
+     * @author: ykn
+     * @date: 2022/5/21 13:56
+     * @return: void
+     */
     public void init(Stage stage) {
         AnchorPane root = new AnchorPane();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
@@ -46,22 +54,50 @@ public class Director {
         stage.show();
     }
 
-
-    public void toIndex(){
+    /**
+     * Description: 启动初始界面
+     *
+     * @author: ykn
+     * @date: 2022/5/21 13:57
+     * @return: void
+     */
+    public void toIndex() {
         Index.load(stage);
     }
 
+    /**
+     * Description: 启动游戏界面
+     *
+     * @author: ykn
+     * @date: 2022/5/21 13:58
+     * @return: void
+     */
     public void gameStart() {
         gameScene.init(stage);
-        //LookWAScene.load(stage);
+  //      LookWAScene.load(stage);
     }
 
+    /**
+     * Description: 游戏结束
+     *
+     * @param success: Boolean
+     * @author: ykn
+     * @date: 2022/5/21 13:58
+     * @return: void
+     */
     public void gameOver(boolean success) {
         gameScene.clear();
-        GameOver.load(stage,success);
+        GameOver.load(stage, success);
     }
 
-    public void lookWA(){
-
+    /**
+     * Description: 打开错误记录
+     *
+     * @author: ykn
+     * @date: 2022/5/21 13:59
+     * @return: void
+     */
+    public void lookWA() {
+        LookWAScene.load(stage);
     }
 }

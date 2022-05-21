@@ -2,7 +2,6 @@ package Server;
 
 import Tools.ScoreStatus;
 import getWords.GetWords;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * description: 一个对局是一个线程, 在线程中继续管理两个线程
  * @className: PairRunnable
- * @description: 一个对局是一个线程, 在线程中继续管理两个线程
  * @author: ykn
  * @date: 2022/5/17
  **/
@@ -69,9 +68,7 @@ public class PairRunnable {
         @Override
         public void run() {
             while (run) {
-
                 try {
-
                     msg = br.readLine();
                     if (msg.equals("ok")) {
                         sign = true;
@@ -98,6 +95,13 @@ public class PairRunnable {
             }
         }
 
+        /**
+         * Description: 对客户端发来的消息进行判断
+         * @author: ykn
+         * @date: 2022/5/21 14:25
+         * @param msg: 客户端传过来的消息
+         * @return: void
+         */
         public void judge(String msg) {
             switch (msg) {
 
@@ -142,11 +146,11 @@ public class PairRunnable {
                     }
                     break;
                 }
-                case ScoreStatus.KEEP_POINT: {
+                case ScoreStatus.NO_ANSWER: {
                     this.score -= 1;
                     this.ps.println("WORD:" + words.get(count) + ": ");
                     count++;
-                    this.ps.println(ScoreStatus.KEEP_POINT + ": :" + this.score + "-" + this.otherSide.score);
+                    this.ps.println(ScoreStatus.NO_ANSWER + ": :" + this.score + "-" + this.otherSide.score);
 
                     break;
                 }

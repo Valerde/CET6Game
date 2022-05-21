@@ -1,12 +1,8 @@
 package ykn.sovava.Tools;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 /**
+ * description: 处理单词组
  * @className: WordsHandle
- * @description:
  * @author: ykn
  * @date: 2022/5/17
  **/
