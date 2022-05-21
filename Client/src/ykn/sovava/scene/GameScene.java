@@ -16,19 +16,20 @@ import javafx.stage.Stage;
  * @author: ykn
  * @date: 2022/5/18
  **/
-public class GameScene {
+public abstract class GameScene {
 
-    Stage stage;
-    Label label;
-    TextField textField;
-    Label labelResult;
-    Label labelTranslation;
-    Label playerInfo;
-    Label scoreLabel;
-    Button readyButton;
+    public Stage stage;
+    public Label label;
+    public TextField textField;
+    public Label labelResult;
+    public Label labelTranslation;
+    public Label playerInfo;
+    public Label scoreLabel;
+    public Button readyButton;
     MyClient client;
 
-    public void init(Stage stage) {
+
+    GameScene(Stage stage) {
 
         //label 用于显示残缺的英文单词
         this.stage = stage;
@@ -89,37 +90,13 @@ public class GameScene {
         AnchorPane root = new AnchorPane(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
         stage.getScene().setRoot(root);
         stage.show();
+        //TODO change here
+//        client = new MyClient(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
+//        Thread t = new Thread(client);
+//        t.start();
 
-        client = new MyClient(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
-        Thread t = new Thread(client);
-        t.start();
 
-        //关闭UI线程时同时关闭各子线程
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                client.ps.println("over");
-                System.exit(0);
-            }
-        });
 
     }
 
-    /**
-     * Description: 游戏结束清除界面
-     *
-     * @author: ykn
-     * @date: 2022/5/21 14:13
-     * @return: void
-     */
-    public void clear() {
-        client.f = false;
-        label = null;
-        textField = null;
-        labelResult = null;
-        labelTranslation = null;
-        playerInfo = null;
-        scoreLabel = null;
-        readyButton = null;
-    }
 }

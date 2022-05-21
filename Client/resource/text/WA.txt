@@ -214,3 +214,92 @@ probe | -n.探针 vt.用探针探查
 polar | -a.南(北)极的；极性的
 seemingly | -ad.表面上，外表上
 presentation | -n.介绍；赠送；呈现
+pedestrian | -n.行人，步行者
+affirm | -vt.断言，批准；证实
+marginal | -a.记在页边的；边缘的
+marginal | -a.记在页边的；边缘的
+imitation | -n.仿制品，伪制物
+imitation | -n.仿制品，伪制物
+imitation | -n.仿制品，伪制物
+peer | -vi.凝视；隐约出现
+burial | -n.安葬，埋葬，埋藏
+diminish | -vt.减少，减小，递减
+species | -n.种，物种；种类
+graze | -vi.喂草；放牧(牲畜)
+Permeate | -vt. 弥漫,渗透,充满 vi.透入
+obscene | -a. 淫秽的,猥亵的
+retrospect | -n. 回顾,追忆,回溯
+retrospect | -n. 回顾,追忆,回溯
+retrospect | -n. 回顾,追忆,回溯
+impair | -vt. 损害,减少,削弱
+provoke | -vt. 激怒,惹起,驱使
+corrupt | -vt.贿赂 a.腐败的
+burial | -n.安葬，埋葬，埋藏
+dispatch | -vt.派遣；调度 n.急件
+turbulent | -a.骚动的，骚乱的
+heritage | -n. 遗产,继承物,传统
+tariff | -n.关税,价格表,收费表 vt. 课以关税
+whirl | -vt.使回旋 vi.&n.回旋
+streamline | -n.流线；流线型
+inventory | -n. 详细目录,存货清单
+productivity | -n.生产率；多产
+swamp | -n.沼泽，沼泽地
+strive | -vi.努力，奋斗，力求
+strive | -vi.努力，奋斗，力求
+drainage | -n.排水；下水道
+drainage | -n.排水；下水道
+drainage | -n.排水；下水道
+estate | -n. 房地产；财产，产业
+clockwise | -a.&ad.顺时针方向转的
+mobilize | -vt.动员 vi.动员起来
+chord | -n.(乐器的)弦 vi.协调
+disastrous | -a.灾难性的；悲惨的
+ensue | -vt. 追求 vi. 跟着发生,继起
+subsidiary | -a.辅助的，补充的
+robust | -a. 强健的,粗野的,坚定的
+discrete | -a. 不连续的, 离散的
+grin | -vi.咧着嘴笑
+aggravate | -vt. 使恶化,使更加重
+escort | -n.&vt.护卫，护送
+conspicuous | -a. 显著的,显眼的,出众的
+random | -n.随机 a.随机的
+marsh | -n.沼泽地，湿地
+alliance | -n. 联盟,联合
+tribute | -n.贡物；献礼，贡献
+terrain | -n. 地带,地域,范围,领域
+hug | -vt.搂 n.紧紧拥抱
+thanksgiving | -n.感恩节
+striking | -a.显著的，惊人的
+versus | -prep.(比赛等中)对
+conspicuous | -a. 显著的,显眼的,出众的
+proclaim | -vt.宣告，宣布；表明
+massive | -a.粗大的；大而重的
+segment | -n.切片，部分；段，节
+acute | -a. 敏锐的
+speculate | -vi.思索，沉思；投机
+stabilize | -vt.使稳定,使坚固 vi.稳定,安定
+snap | -vt.猛咬，突然折断
+discern | -vt.看出，辨出；辨别
+leaflet | -n.传单，活页；广告
+rip | -vi.撕啐，扯破，划破
+menace | -vt.&vi.&n.(进行)威胁
+tribe | -n.部落，宗族
+update | -vt. 更新,使现代化
+flutter | -vi.(鸟)振翼；飘动
+accessory | -n.同谋 a.附属的
+despatch | -vt.vi.n. 派遣
+orientation | -n.向东；定位；方向
+correspondence | -n.通信；符合；对应
+fabricate | -vt.制作，组合；捏造
+erupt | -vi. 爆发 vt. 喷出
+reclaim | -vt.开垦，开拓；回收
+tow | -vt.&n.拖引，牵引
+implement | -n.工具 vt. 实现,使生效,执行
+groan | -vi.哼，呻吟 n.呻吟
+diversion | -n.转移；改道；娱乐
+stimulus | -n. 刺激,激励,刺激品
+defy | -vt.向…挑战；蔑视
+compliment | -n.问候 vt.赞美，祝贺
+tilt | -vt.&vi.(使)倾斜
+fist | -n.拳(头)
+journalist | -n.记者，新闻工作者

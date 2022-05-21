@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import ykn.sovava.Director;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
@@ -15,26 +16,26 @@ import ykn.sovava.Tools.WriteWA;
  * @author: ykn
  * @date: 2022年05月21日 16:02
  **/
-public abstract class GameSceneChange {
-    public Label label;//TODO 把这个改为Canvas
-    public TextField textField;
-    public Label labelResult;
-    public Label labelTranslation;
-    public Label playerInfo;
-    public Label scoreLabel;
-    public Button readyButton;
+public abstract class GameSceneChange extends GameScene{
+//    public Label label;//TODO 把这个改为Canvas
+//    public TextField textField;
+//    public Label labelResult;
+//    public Label labelTranslation;
+//    public Label playerInfo;
+//    public Label scoreLabel;
+//    public Button readyButton;
     public int myScore;
     public int otherScore;
 
-    public GameSceneChange(Label label, TextField textField, Label labelResult,
-                           Label labelTranslation, Label playerInfo, Label scoreLabel, Button readyButton) {
-        this.label = label;
-        this.textField = textField;
-        this.labelResult = labelResult;
-        this.labelTranslation = labelTranslation;
-        this.playerInfo = playerInfo;
-        this.scoreLabel = scoreLabel;
-        this.readyButton = readyButton;
+    public GameSceneChange(Stage stage) {
+        super(stage);
+//        this.label = label;
+//        this.textField = textField;
+//        this.labelResult = labelResult;
+//        this.labelTranslation = labelTranslation;
+//        this.playerInfo = playerInfo;
+//        this.scoreLabel = scoreLabel;
+//        this.readyButton = readyButton;
         myScore = otherScore= 10;
     }
     public void set(WordsHandle wh, String s, String status) {

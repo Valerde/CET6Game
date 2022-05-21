@@ -4,10 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ykn.sovava.scene.GameOver;
-import ykn.sovava.scene.GameScene;
-import ykn.sovava.scene.Index;
-import ykn.sovava.scene.LookWAScene;
+import ykn.sovava.scene.*;
 
 /**
  * description:导演类
@@ -22,7 +19,8 @@ public class Director {
 
     private Stage stage = null;
 
-    private GameScene gameScene = new GameScene();
+    //private GameScene gameScene = new GameScene(s);
+    private MyClient client = null;
 
     private Director() {
     }
@@ -73,7 +71,10 @@ public class Director {
      * @return: void
      */
     public void gameStart() {
-        gameScene.init(stage);
+        //gameScene.init(stage);
+        client = new MyClient(stage);
+        Thread t = new Thread(client);
+        t.start();
         //LookWAScene.load(stage);
     }
 
@@ -86,7 +87,7 @@ public class Director {
      * @return: void
      */
     public void gameOver(boolean success) {
-        gameScene.clear();
+        client.clear();
         GameOver.load(stage, success);
     }
 

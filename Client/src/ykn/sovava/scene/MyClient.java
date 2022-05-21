@@ -1,10 +1,13 @@
 package ykn.sovava.scene;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import ykn.sovava.Director;
 import ykn.sovava.Tools.GetIP;
 import ykn.sovava.Tools.ScoreStatus;
@@ -34,10 +37,9 @@ public class MyClient extends GameSceneChange implements Runnable {
     public static WordsHandle wh;
     public Boolean f = false;
 
-    public MyClient(Label label, TextField textField, Label labelResult, Label labelTranslation,
-                    Label playerInfo, Label scoreLabel, Button readyButton) {
+    public MyClient(Stage stage) {
 
-        super(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
+        super(stage);
         try {
             s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
@@ -64,7 +66,8 @@ public class MyClient extends GameSceneChange implements Runnable {
                     myAnswer = textField.getText();
                     sendMSG(wh, myAnswer);
                 }
-                textField.clear();
+                if (textField != null)
+                    textField.clear();
 
             }
         });
@@ -79,6 +82,15 @@ public class MyClient extends GameSceneChange implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //关闭UI线程时同时关闭各子线程
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                client.ps.println("over");
+                System.exit(0);
+            }
+        });
 
         while (f) {
             getWords();
@@ -144,17 +156,39 @@ public class MyClient extends GameSceneChange implements Runnable {
         if (wh.getEnglish().equals(answer)) {
             ps.println(ScoreStatus.ADD_ONE_POINT);
             Platform.runLater(() -> {
-                labelResult.setText("Right");
-                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: green;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+                if (labelResult != null) {
+                    labelResult.setText("Right");
+                    labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: green;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+                }
             });
         } else {
             ps.println(ScoreStatus.REDUCT_TWO_POINT);
             WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
-                labelResult.setText("Wrong");
-                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+                if (labelResult != null) {
+                    labelResult.setText("Wrong");
+                    labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+                }
             });
         }
+    }
+
+    /**
+     * Description: 游戏结束清除界面
+     *
+     * @author: ykn
+     * @date: 2022/5/21 14:13
+     * @return: void
+     */
+    public void clear() {
+        f = false;
+        label = null;
+        textField = null;
+        labelResult = null;
+        labelTranslation = null;
+        playerInfo = null;
+        scoreLabel = null;
+        readyButton = null;
     }
 //    public void set(WordsHandle wh, String s, String status) {
 //        if (status.equals(ScoreStatus.NO_ANSWER)) {
@@ -189,6 +223,7 @@ public class MyClient extends GameSceneChange implements Runnable {
 //    }
 
     private int time = 100;
+
     /**
      * Description: 单词掉落子线程
      *
@@ -201,12 +236,13 @@ public class MyClient extends GameSceneChange implements Runnable {
         public void run() {
             Y = 0;
             time += 100;
-            while (RUN) {
+            while (RUN && label != null) {
                 try {
                     Thread.sleep(time);
                     Y += 5;
                     Platform.runLater(() -> {
-                        label.setLayoutY(Y);
+                        if (label != null)
+                            label.setLayoutY(Y);
                     });
                     if (Y >= 700) {
                         ps.println(ScoreStatus.NO_ANSWER);
@@ -216,7 +252,6 @@ public class MyClient extends GameSceneChange implements Runnable {
             }
         }
     }
-
 
 
 }
