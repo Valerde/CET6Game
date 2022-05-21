@@ -24,38 +24,20 @@ import java.net.Socket;
  * @author: ykn
  * @date: 2022/5/19
  **/
-public class MyClient implements Runnable {
-
-    public Label label;//TODO 把这个改为Canvas
-    public TextField textField;
-    public Label labelResult;
-    public Label labelTranslation;
-    public Label playerInfo;
-    public Label scoreLabel;
-    public Button readyButton;
+public class MyClient extends GameSceneChange implements Runnable {
     public Socket s;
     public PrintStream ps;
     public BufferedReader br;
-    public int myScore;
-    public int otherScore;
     public String myAnswer;
     public int Y = 0;
     public TextThread th;
     public static WordsHandle wh;
     public Boolean f = false;
 
-    public MyClient(Label label, TextField textField,
-                    Label labelResult, Label labelTranslation, Label playerInfo, Label scoreLabel, Button readyButton) {
-        super();
-        this.label = label;
-        this.textField = textField;
-        this.labelResult = labelResult;
-        this.labelTranslation = labelTranslation;
-        this.playerInfo = playerInfo;
-        this.scoreLabel = scoreLabel;
-        this.readyButton = readyButton;
-        myScore = otherScore = 10;
+    public MyClient(Label label, TextField textField, Label labelResult, Label labelTranslation,
+                    Label playerInfo, Label scoreLabel, Button readyButton) {
 
+        super(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
         try {
             s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
@@ -86,7 +68,7 @@ public class MyClient implements Runnable {
 
             }
         });
-        //监听开始
+        //监听服务器发来的开始信号
         try {
             if (br.readLine().equals("herewego")) {
                 f = true;
@@ -97,7 +79,6 @@ public class MyClient implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         while (f) {
             getWords();
@@ -127,7 +108,6 @@ public class MyClient implements Runnable {
                 switch (strs[0]) {
                     case ScoreStatus.ADD_ONE_POINT:
                     case ScoreStatus.NO_ANSWER:
-
                     case ScoreStatus.REDUCT_TWO_POINT: {
                         Platform.runLater(() -> {
                             set(wh, strs[2], strs[0]);
@@ -137,80 +117,17 @@ public class MyClient implements Runnable {
                         break;
                     }
                     case ScoreStatus.WIN: {
-                        set(true, strs[2]);
+                        set(true);
                         break;
                     }
                     case ScoreStatus.LOSE: {
-                        set(false, strs[2]);
+                        set(false);
                         break;
                     }
                 }//switch
             }//if
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-    }
-
-    private void set(WordsHandle wh, String s, String status) {
-        if (status.equals(ScoreStatus.NO_ANSWER)) {
-            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
-            Platform.runLater(() -> {
-                labelResult.setText("Pass");
-                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
-            });
-            otherScore -= 1;
-        } else {
-            otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
-        }
-        myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
-        label.setText(wh.getEnglishIncomplete());
-        labelTranslation.setText(wh.getTranslation());
-        scoreLabel.setText(myScore + " : " + otherScore);
-        label.setLayoutY(0);
-        label.setLayoutX(175 - label.getWidth() / 2);
-
-    }
-
-    private void set(WordsHandle wh) {
-        label.setText(wh.getEnglishIncomplete());
-        labelTranslation.setText(wh.getTranslation());
-        scoreLabel.setText(myScore + " : " + otherScore);
-        label.setLayoutY(0);
-        label.setLayoutX(175 - label.getWidth() / 2);
-    }
-
-    private void set(Boolean flag, String s) {
-        Director.getInstance().gameOver(flag);
-    }
-
-    private int time = 100;
-
-    /**
-     * Description: 单词掉落子线程
-     *
-     * @author: ykn
-     * @date: 2022/5/21 14:17
-     */
-    public class TextThread extends Thread {
-        Boolean RUN = true;
-
-        public void run() {
-            Y = 0;
-            time += 100;
-            while (RUN) {
-                try {
-                    Thread.sleep(time);
-                    Y += 5;
-                    Platform.runLater(() -> {
-                        label.setLayoutY(Y);
-                    });
-                    if (Y >= 700) {
-                        ps.println(ScoreStatus.NO_ANSWER);
-                    }
-                } catch (Exception ex) {
-                }
-            }
         }
     }
 
@@ -239,5 +156,67 @@ public class MyClient implements Runnable {
             });
         }
     }
+//    public void set(WordsHandle wh, String s, String status) {
+//        if (status.equals(ScoreStatus.NO_ANSWER)) {
+//            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
+//            Platform.runLater(() -> {
+//                labelResult.setText("Pass");
+//                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
+//            });
+//            otherScore -= 1;
+//        } else {
+//            otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
+//        }
+//        myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
+//        label.setText(wh.getEnglishIncomplete());
+//        labelTranslation.setText(wh.getTranslation());
+//        scoreLabel.setText(myScore + " : " + otherScore);
+//        label.setLayoutY(0);
+//        label.setLayoutX(175 - label.getWidth() / 2);
+//
+//    }
+//
+//    public void set(WordsHandle wh) {
+//        label.setText(wh.getEnglishIncomplete());
+//        labelTranslation.setText(wh.getTranslation());
+//        scoreLabel.setText(myScore + " : " + otherScore);
+//        label.setLayoutY(0);
+//        label.setLayoutX(175 - label.getWidth() / 2);
+//    }
+//
+//    public void set(Boolean flag) {
+//        Director.getInstance().gameOver(flag);
+//    }
+
+    private int time = 100;
+    /**
+     * Description: 单词掉落子线程
+     *
+     * @author: ykn
+     * @date: 2022/5/21 14:17
+     */
+    public class TextThread extends Thread {
+        Boolean RUN = true;
+
+        public void run() {
+            Y = 0;
+            time += 100;
+            while (RUN) {
+                try {
+                    Thread.sleep(time);
+                    Y += 5;
+                    Platform.runLater(() -> {
+                        label.setLayoutY(Y);
+                    });
+                    if (Y >= 700) {
+                        ps.println(ScoreStatus.NO_ANSWER);
+                    }
+                } catch (Exception ex) {
+                }
+            }
+        }
+    }
+
+
 
 }

@@ -74,7 +74,7 @@ public class Director {
      */
     public void gameStart() {
         gameScene.init(stage);
-  //      LookWAScene.load(stage);
+        //LookWAScene.load(stage);
     }
 
     /**

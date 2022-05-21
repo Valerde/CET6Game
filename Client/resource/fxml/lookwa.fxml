@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ykn.sovava.controller.LookWAController">
    <children>
-      <Button fx:id="ret" layoutX="263.0" layoutY="685.0" mnemonicParsing="false" onAction="#clickToBack" prefHeight="49.0" prefWidth="114.0" text="返回">
+      <Button fx:id="ret" layoutX="254.0" layoutY="687.0" mnemonicParsing="false" onAction="#clickToBack" prefHeight="49.0" prefWidth="114.0" text="返回">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="area" prefHeight="660.0" prefWidth="640.0" />
+      <TextArea fx:id="area" prefHeight="660.0" prefWidth="622.0" />
    </children>
 </AnchorPane>

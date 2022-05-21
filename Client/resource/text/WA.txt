@@ -176,3 +176,41 @@ comedy | -n.喜剧；喜剧场面
 comedy | -n.喜剧；喜剧场面
 refugee | -n.难民，流亡者
 refugee | -n.难民，流亡者
+strategic | -a. 战略的,战略上的
+seminar | -n. 研究会,讨论发表会
+ivory | -n.象牙；牙质；乳白色
+enroll | -vt.登记，招收 vi.参军
+pursuit | -n.追赶；追求；事务
+provocative | -a. 挑衅的,刺激的,挑逗的
+context | -n.上下文；来龙去脉
+versatile | -a.多方面的；通用的
+comet | -n. 慧星
+prayer | -n.祈祷，祈求
+ultraviolet | -a.紫外的 n.紫外线辐射
+agreeable | -a.惬意的；同意的
+conviction | -n.确信，信服，深信
+stationary | -a.固定的,静止不动的
+contaminate | -vt. 弄脏,毒害,传染
+ample | -a.足够的；宽敞的
+thrill | -vt.&vi.(使)激动
+solidarity | -n.团结；休戚相关
+offset | -n.分支，抵销 vt.抵销
+entail | -vt. 使必需,使承担
+proclaim | -vt.宣告，宣布；表明
+petty | -a.细小的；器量小的
+immerse | -vt.沉浸；给…施洗礼
+embed | -vt. 使插入,使嵌入
+coherent | -a.粘着的；紧凑的
+magnify | -vt.放大，扩大
+bypass | -n.旁通管 vt.绕过
+skeptical | -a. 怀疑的,多疑的
+synthesis | -n.合成；综合，综合物
+inventory | -n. 详细目录,存货清单
+overwhelm | -vt.压倒，使不知所措
+locomotive | -a.运动的；机动
+sponge | -n.海绵
+tariff | -n.关税,价格表,收费表 vt. 课以关税
+probe | -n.探针 vt.用探针探查
+polar | -a.南(北)极的；极性的
+seemingly | -ad.表面上，外表上
+presentation | -n.介绍；赠送；呈现
