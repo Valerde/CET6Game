@@ -63,6 +63,7 @@ public class PairRunnable {
 
         /**
          * Description: 内部类,每个对象为一个玩家,一个对局内只有两个玩家。
+         *
          * @author: ykn
          * @date: 2022/5/21 15:11
          */
@@ -111,36 +112,22 @@ public class PairRunnable {
          */
         public void judge(String msg) {
             switch (msg) {
-
                 case ScoreStatus.ADD_ONE_POINT: {
-                    String word = getWords.OneWordMsgToTrans();
                     this.score += 1;
-                    for (Player p : playerList) {
-                        p.ps.println("WORD:" + word + ": ");
-                        p.ps.println(ScoreStatus.ADD_ONE_POINT + ": :" + p.score + "-" + p.otherSide.score);
-                    }
+                    this.ps.println("WORD:" + word + ": ");
+                    this.otherSide.ps.println("WORD:" + word + ": ");
+                    this.ps.println(ScoreStatus.ADD_ONE_POINT + ": :" + this.score + "-" + this.otherSide.score);
+                    this.otherSide.ps.println(ScoreStatus.ADD_ONE_POINT + ": :" + this.otherSide.score + "-" + this.score);
                     break;
                 }
 
                 case ScoreStatus.REDUCT_TWO_POINT: {
-                    String word = getWords.OneWordMsgToTrans();
                     this.score -= 2;
-                    if (this.score <= 0) {
-                        for (Player p : playerList) {
-                            if (p.equals(this)) {
-                                this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
-                            } else {
-                                p.ps.println(ScoreStatus.WIN + ": :" + p.score + "-" + p.otherSide.score);
-                            }
-                        }
-                        break;
-                    }
-                    for (Player p : playerList) {
-
-                        p.ps.println("WORD:" + word + ": ");
-                        p.ps.println(ScoreStatus.REDUCT_TWO_POINT + ": :" + p.score + "-" + p.otherSide.score);
-
-                    }
+                    if (judgeIfLose()) break;
+                    this.ps.println("WORD:" + word + ": ");
+                    this.otherSide.ps.println("WORD:" + word + ": ");
+                    this.ps.println(ScoreStatus.REDUCT_TWO_POINT + ": :" + this.score + "-" + this.otherSide.score);
+                    this.otherSide.ps.println(ScoreStatus.REDUCT_TWO_POINT + ": :" + this.otherSide.score + "-" + this.score);
                     break;
                 }
                 case ScoreStatus.LOSE: {
@@ -152,14 +139,15 @@ public class PairRunnable {
                     this.ps.println("WORD:" + words.get(count) + ": ");
                     count++;
                     this.ps.println(ScoreStatus.NO_ANSWER + ": :" + this.score + "-" + this.otherSide.score);
-
                     break;
                 }
 
             }//switch
         }
+
         /**
          * Description: 每次扣分后，判断该玩家是否已经输了，当所有玩家都是0分一下时，均失败。
+         *
          * @author: ykn
          * @date: 2022/5/21 15:12
          * @return: java.lang.Boolean
@@ -172,6 +160,5 @@ public class PairRunnable {
             }
             return false;
         }
-
     }
 }
