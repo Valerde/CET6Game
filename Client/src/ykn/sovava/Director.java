@@ -19,7 +19,6 @@ public class Director {
 
     private Stage stage = null;
 
-    //private GameScene gameScene = new GameScene(s);
     private MyClient client = null;
 
     private Director() {
@@ -71,11 +70,9 @@ public class Director {
      * @return: void
      */
     public void gameStart() {
-        //gameScene.init(stage);
         client = new MyClient(stage);
         Thread t = new Thread(client);
         t.start();
-        //LookWAScene.load(stage);
     }
 
     /**

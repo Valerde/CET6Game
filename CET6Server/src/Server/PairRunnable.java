@@ -2,7 +2,6 @@ package Server;
 
 import Tools.ScoreStatus;
 import getWords.GetWords;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -58,7 +57,6 @@ public class PairRunnable {
         String msg;
         Boolean sign = false;
         String word;
-
         Boolean run = true;
 
         /**
@@ -76,7 +74,7 @@ public class PairRunnable {
         public void run() {
             while (run) {
                 try {
-                    msg = br.readLine();
+                    msg = br.readLine()+"";
                     if (msg.equals("ok")) {
                         sign = true;
                     } else if (msg.equals("over")) {
@@ -91,11 +89,12 @@ public class PairRunnable {
                         String word = getWords.OneWordMsgToTrans();
                         player1.ps.println("WORD:" + word + ": ");
                         player2.ps.println("WORD:" + word + ": ");
-                        sign = false;
+                        this.sign = false;
+                        this.otherSide.sign = false;
                     }
                     word = getWords.OneWordMsgToTrans();
                     judge(msg);
-                } catch (IOException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -110,7 +109,7 @@ public class PairRunnable {
          * @date: 2022/5/21 14:25
          * @return: void
          */
-        public void judge(String msg) {
+        public void judge(String msg) throws InterruptedException {
             switch (msg) {
                 case ScoreStatus.ADD_ONE_POINT: {
                     this.score += 1;
@@ -152,9 +151,10 @@ public class PairRunnable {
          * @date: 2022/5/21 15:12
          * @return: java.lang.Boolean
          */
-        private Boolean judgeIfLose() {
+        private Boolean judgeIfLose() throws InterruptedException {
             if (this.score <= 0) {
                 this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
+                Thread.sleep(100);
                 this.otherSide.ps.println(ScoreStatus.WIN + ": :" + this.otherSide.score + "-" + this.score);
                 return true;
             }

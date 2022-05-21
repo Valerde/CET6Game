@@ -303,3 +303,403 @@ compliment | -n.问候 vt.赞美，祝贺
 tilt | -vt.&vi.(使)倾斜
 fist | -n.拳(头)
 journalist | -n.记者，新闻工作者
+rip | -vi.撕啐，扯破，划破
+sober | -a.清醒的；适度的
+depression | -n.消沉；不景气萧条期
+reside | -vi.居住，驻扎；属于
+scrutiny | -n. 细看,仔细检查,监视
+overlap | -vt.与…交搭 vi.重迭
+jury | -n.陪审团；评奖团
+dominant | -a.统治的 n.主因
+constituent | -a.形成的 n.选民
+compulsory | -a.强迫的，义务的
+irony | -n. 反讽,讽剌,讽剌之事
+pose | -vi.假装，摆姿势 n.姿势
+recycle | -vt. 使再循环,再利用,再制
+bizarre | -a. 奇异的
+sparkle | -vi.发火花 vt.使闪耀
+trench | -n.深沟；壕沟，战壕
+breakdown | -n.崩溃，倒塌；失败
+breakdown | -n.崩溃，倒塌；失败
+hurricane | -n.飓风，十二级风
+hurricane | -n.飓风，十二级风
+bug | -n.虫子；臭虫
+bug | -n.虫子；臭虫
+deprive | -vt.夺去；使(人)失去
+deprive | -vt.夺去；使(人)失去
+intensify | -vt.vi. 加强，强化
+intensify | -vt.vi. 加强，强化
+suitcase | -n.小提箱，衣箱
+suitcase | -n.小提箱，衣箱
+corrupt | -vt.贿赂 a.腐败的
+corrupt | -vt.贿赂 a.腐败的
+petty | -a.细小的；器量小的
+petty | -a.细小的；器量小的
+analytical | -a. 分析的,解析的
+dine | -vi.吃饭 vt.宴请
+knob | -n.门把，拉手；旋纽
+knob | -n.门把，拉手；旋纽
+reconcile | -vt.使和好；调停
+reconcile | -vt.使和好；调停
+spectator | -n.参观者，观众
+spectator | -n.参观者，观众
+haunt | -vt.常去 vi.经常出没
+haunt | -vt.常去 vi.经常出没
+prayer | -n.祈祷，祈求
+prayer | -n.祈祷，祈求
+prayer | -n.祈祷，祈求
+fitting | -a.适当的 n.配合
+fitting | -a.适当的 n.配合
+fitting | -a.适当的 n.配合
+confidential | -a.秘密的；亲信的
+confidential | -a.秘密的；亲信的
+savage | -a.未开发的,野蛮
+savage | -a.未开发的,野蛮
+bald | -a.秃头的；无毛的
+bald | -a.秃头的；无毛的
+timber | -n.木材，木料
+timber | -n.木材，木料
+situated | -a.位于…的
+situated | -a.位于…的
+Overt | -a. 明显的,公然的
+Overt | -a. 明显的,公然的
+detective | -n.侦探，密探
+detective | -n.侦探，密探
+segregate | -a.分离的,被隔离的 vt.使分离,使隔离
+cling | -vi.粘住；依附；坚持
+optimism | -n.乐观，乐观主义
+eloquent | -a. 雄辩的,有口才的,动人的
+contrive | -vt.vi. 发明,设计,图谋
+alternate | -vt.使交替 a.交替的
+despise | -vt.鄙视，蔑视
+mechanism | -n.机械装置；机制
+brutal | -a. 残忍的,野蛮的,不讲理的
+foam | -n.泡沫；泡沫塑料
+pathetic | -a.哀婉动人的；可怜的
+lamb | -n.羔羊，小羊；羔羊肉
+lamb | -n.羔羊，小羊；羔羊肉
+fellowship | -n.伙伴关系；联谊会
+fellowship | -n.伙伴关系；联谊会
+diplomatic | -a.外交的；有策略的
+diplomatic | -a.外交的；有策略的
+inlet | -n.进口，水湾 vt.引进
+inlet | -n.进口，水湾 vt.引进
+thirst | -n.渴，口渴；渴望
+thirst | -n.渴，口渴；渴望
+clearance | -n. 清除,解除,间隙
+clearance | -n. 清除,解除,间隙
+hostage | -n.人质，抵押品
+hostage | -n.人质，抵押品
+seminar | -n. 研究会,讨论发表会
+seminar | -n. 研究会,讨论发表会
+melody | -n.旋律，曲调；歌曲
+melody | -n.旋律，曲调；歌曲
+hose | -n.长筒袜；软管
+hose | -n.长筒袜；软管
+mess | -vt.弄脏，弄乱，搞糟
+mess | -vt.弄脏，弄乱，搞糟
+ritual | -n. 仪式 a. 仪式的,例行公事的
+ritual | -n. 仪式 a. 仪式的,例行公事的
+paralyze | -vt. 使瘫痪,使麻痹
+paralyze | -vt. 使瘫痪,使麻痹
+overhear | -vt.偶然听到；偷听
+overhear | -vt.偶然听到；偷听
+rejoice | -vi.欣喜，高兴
+rejoice | -vi.欣喜，高兴
+inhabit | -vt.居住于，栖息于
+inhabit | -vt.居住于，栖息于
+slack | -a.松弛的; 萧条的;懈怠的；vt.使松弛
+slack | -a.松弛的; 萧条的;懈怠的；vt.使松弛
+stationary | -a.固定的,静止不动的
+stationary | -a.固定的,静止不动的
+fluctuate | -vi.波动 vt.使波动
+fluctuate | -vi.波动 vt.使波动
+eject | -vt.逐出，排斥；喷射
+eject | -vt.逐出，排斥；喷射
+interact | -vi.相互作用
+interact | -vi.相互作用
+ignorance | -n.无知，无学，愚昧
+ignorance | -n.无知，无学，愚昧
+depute | -vt. 指定代理人,委任
+depute | -vt. 指定代理人,委任
+saturate | -vt. 使浸透,使充满,使饱和
+saturate | -vt. 使浸透,使充满,使饱和
+shabby | -a.褴褛的；破旧的
+shabby | -a.褴褛的；破旧的
+afflict | -vt. 使痛苦,折磨
+afflict | -vt. 使痛苦,折磨
+reckon | -vi.数，算帐 vt.认为
+reckon | -vi.数，算帐 vt.认为
+ban | -n. 禁令 vt. 禁止,取缔
+ban | -n. 禁令 vt. 禁止,取缔
+ban | -n. 禁令 vt. 禁止,取缔
+layman | -n. 俗人,门外汉,凡人
+hinge | -n.合页，折叶，铰链
+equilibrium | -n.平衡，均衡；均衡论
+fragile | -a.脆的；体质弱的
+ivory | -n.象牙；牙质；乳白色
+manuscript | -n.手稿，底稿，原稿
+bunch | -n.束，球，串；一群
+probe | -n.探针 vt.用探针探查
+probe | -n.探针 vt.用探针探查
+probe | -n.探针 vt.用探针探查
+tentative | -n.试验,假设 a.试验性暂时的
+watertight | -a.不漏水的，防水的
+wrench | -vt.拧，扭伤 n.拧
+furious | -a.狂怒的；狂暴的
+stubborn | -a.顽固的；顽强的
+reservation | -n.保留；预定，预订
+realistic | -a.现实的；现实主义的
+Easter | -n. 复活节
+assurance | -n.保证；财产转让书
+obscene | -a. 淫秽的,猥亵的
+obscene | -a. 淫秽的,猥亵的
+blaze | -n.火；闪光 vi.燃烧
+blaze | -n.火；闪光 vi.燃烧
+blaze | -n.火；闪光 vi.燃烧
+exclusive | -a.排外的；孤傲的
+hostage | -n.人质，抵押品
+gossip | -n.闲谈；碎嘴子；漫笔
+verge | -n.边缘，边界，界限
+myth | -n. 神话,虚构的事,虚构的人
+bud | -n.芽，萌芽；蓓蕾
+appreciable | -a.可估价的；可察觉的
+entity | -n. 实体,实存物,存在
+boost | -vt. n. 推进,支援,吹捧
+boost | -vt. n. 推进,支援,吹捧
+coward | -a.懦怯的，胆小的
+coward | -a.懦怯的，胆小的
+coward | -a.懦怯的，胆小的
+adjoin | -vt.贴近，毗连；靠近
+integrity | -n.诚实，正直
+beforehand | -ad.预先；提前地
+fantastic | -a.空想的；奇异的
+fantastic | -a.空想的；奇异的
+earnings | -n.工资，收入；收益
+earnings | -n.工资，收入；收益
+brisk | -a.活泼的；清新的
+brisk | -a.活泼的；清新的
+revolve | -vt.&vi.(使)旋转
+revolve | -vt.&vi.(使)旋转
+tolerant | -a.容忍的；有耐力的
+tolerant | -a.容忍的；有耐力的
+vulnerable | -a. 易受伤害
+vulnerable | -a. 易受伤害
+acquaint | -vt.使认识，使了解
+acquaint | -vt.使认识，使了解
+electrician | -n.电工，电气技师
+electrician | -n.电工，电气技师
+feast | -n.盛宴，筵席；节日
+feast | -n.盛宴，筵席；节日
+intelligible | -a.可理解
+intelligible | -a.可理解
+exile | -vt.流放 n.被流放者
+exile | -vt.流放 n.被流放者
+thorn | -n.刺，棘；荆棘；蒺藜
+thorn | -n.刺，棘；荆棘；蒺藜
+spokesman | -n.发言人，代言人
+spokesman | -n.发言人，代言人
+automation | -n.自动，自动化
+automation | -n.自动，自动化
+bandage | -n.绷带，包带
+bandage | -n.绷带，包带
+dedicate | -vt.奉献；献身
+dedicate | -vt.奉献；献身
+yoke | -n.轭，牛轭；枷锁
+yoke | -n.轭，牛轭；枷锁
+refrain | -vi.抑制，制止，忍住
+refrain | -vi.抑制，制止，忍住
+horrible | -a. 可怕的,极可憎的,极可厌的
+horrible | -a. 可怕的,极可憎的,极可厌的
+pose | -vi.假装，摆姿势 n.姿势
+pose | -vi.假装，摆姿势 n.姿势
+scrutiny | -n. 细看,仔细检查,监视
+scrutiny | -n. 细看,仔细检查,监视
+compulsory | -a.强迫的，义务的
+compulsory | -a.强迫的，义务的
+acquaint | -vt.使认识，使了解
+acquaint | -vt.使认识，使了解
+acquaint | -vt.使认识，使了解
+highlight | -n.突出,精彩场面 vt.加亮,使显著
+curb | -n. 抑制,勒马绳 vt. 抑制,束缚
+instrumental | -a.仪器的；有帮助的
+appendix | -n.附录，附属物；阑尾
+reconcile | -vt.使和好；调停
+tutor | -vt.教，指导
+clarity | -n. 清楚,透明
+sue | -vt. 控告,请愿
+yoke | -n.轭，牛轭；枷锁
+skeleton | -n.骨骼，骷髅；骨架
+decimal | -a.小数的，十进制的
+chorus | -vt.&vi.合唱
+royalty | -n.皇家，王族，皇族
+royalty | -n.皇家，王族，皇族
+prescription | -n.药方，处方的药
+prescription | -n.药方，处方的药
+Persistent | -a. 固执的, 坚持的, 持续的
+Persistent | -a. 固执的, 坚持的, 持续的
+myth | -n. 神话,虚构的事,虚构的人
+premise | -n. 前提,假设，房产
+premise | -n. 前提,假设，房产
+disposition | -n. 性情,处置,处理,布置
+disposition | -n. 性情,处置,处理,布置
+divine | -a.神的；敬神的
+divine | -a.神的；敬神的
+token | -n.象征；辅币；纪念品
+token | -n.象征；辅币；纪念品
+swamp | -n.沼泽，沼泽地
+swamp | -n.沼泽，沼泽地
+multitude | -n.大批，大群；大量
+multitude | -n.大批，大群；大量
+bewilder | -vt.迷惑，把…弄糊涂
+bewilder | -vt.迷惑，把…弄糊涂
+thirst | -n.渴，口渴；渴望
+thirst | -n.渴，口渴；渴望
+arctic | -a.北极的 n.北极
+arctic | -a.北极的 n.北极
+predominant | -a.占优势的；主要的
+predominant | -a.占优势的；主要的
+ward | -n.病房，病室；监房
+ward | -n.病房，病室；监房
+Pendulum | -n.(钟等的)摆
+Pendulum | -n.(钟等的)摆
+enlighten | -vt.启发，开导；启蒙
+enlighten | -vt.启发，开导；启蒙
+spatial | -a.空间的，占据空间的
+spatial | -a.空间的，占据空间的
+tablet | -n.碑，匾；药片
+tablet | -n.碑，匾；药片
+contemplate | -vt. 注视,沉思,打算 vi. 冥思苦想
+contemplate | -vt. 注视,沉思,打算 vi. 冥思苦想
+vent | -n. 排放口,通风口 vt. 发泄,表达
+vent | -n. 排放口,通风口 vt. 发泄,表达
+plaster | -n.灰泥；硬膏；熟石膏
+plaster | -n.灰泥；硬膏；熟石膏
+Nutrition | -n. 营养,营养学
+Nutrition | -n. 营养,营养学
+clockwise | -a.&ad.顺时针方向转的
+clockwise | -a.&ad.顺时针方向转的
+plague | -n.瘟疫，鼠疫；天灾
+plague | -n.瘟疫，鼠疫；天灾
+longitude | -n.经线，经度
+longitude | -n.经线，经度
+sceptical | -a. 怀疑的
+sceptical | -a. 怀疑的
+furious | -a.狂怒的；狂暴的
+furious | -a.狂怒的；狂暴的
+virtual | -a.实际上的，实质上的
+virtual | -a.实际上的，实质上的
+medal | -n.奖章，勋章，纪念章
+medal | -n.奖章，勋章，纪念章
+cruise | -vi.巡航 vt.巡航于…
+cruise | -vi.巡航 vt.巡航于…
+shuttle | -n.(织机的)梭
+shuttle | -n.(织机的)梭
+verge | -n.边缘，边界，界限
+verge | -n.边缘，边界，界限
+trivial | -a.琐碎的；平常的
+trivial | -a.琐碎的；平常的
+ethics | -n. 道德规范
+ethics | -n. 道德规范
+propagate | -vt.繁殖；传播，普及
+propagate | -vt.繁殖；传播，普及
+articulate | -a. 发音清晰的，听得懂的
+articulate | -a. 发音清晰的，听得懂的
+slack | -a.松弛的; 萧条的;懈怠的；vt.使松弛
+slack | -a.松弛的; 萧条的;懈怠的；vt.使松弛
+penalty | -n.处罚，刑罚；罚款
+penalty | -n.处罚，刑罚；罚款
+dock | -n.船坞；码头；船厂
+dock | -n.船坞；码头；船厂
+gamble | -n.赌博 vt.冒…的险
+gamble | -n.赌博 vt.冒…的险
+subtle | -a.微妙的；精巧的
+subtle | -a.微妙的；精巧的
+clamp | -n.夹子 vt.夹住，夹紧
+clamp | -n.夹子 vt.夹住，夹紧
+blaze | -n.火；闪光 vi.燃烧
+blaze | -n.火；闪光 vi.燃烧
+media | -n. 媒体
+media | -n. 媒体
+couch | -n.睡椅，长沙发椅
+couch | -n.睡椅，长沙发椅
+dine | -vi.吃饭 vt.宴请
+dine | -vi.吃饭 vt.宴请
+drought | -n.旱灾，干旱
+drought | -n.旱灾，干旱
+tar | -n.柏油，焦油
+tar | -n.柏油，焦油
+elevate | -vt.提高(思想)；抬高
+elevate | -vt.提高(思想)；抬高
+lamb | -n.羔羊，小羊；羔羊肉
+lamb | -n.羔羊，小羊；羔羊肉
+intelligible | -a.可理解
+intelligible | -a.可理解
+intuition | -n. 直觉,直觉的知识
+intuition | -n. 直觉,直觉的知识
+vicious | -a.邪恶的；恶性的
+vicious | -a.邪恶的；恶性的
+speciality | -n.专业，特长；特产
+speciality | -n.专业，特长；特产
+plea | -n.请愿，请求，恳求
+plea | -n.请愿，请求，恳求
+fling | -vi.&vt.(用力)扔，抛
+fling | -vi.&vt.(用力)扔，抛
+tactics | -n.策略；战术，兵法
+tactics | -n.策略；战术，兵法
+coherent | -a.粘着的；紧凑的
+coherent | -a.粘着的；紧凑的
+heritage | -n. 遗产,继承物,传统
+heritage | -n. 遗产,继承物,传统
+plead | -vt.为…辩护 vi.抗辩
+plead | -vt.为…辩护 vi.抗辩
+lick | -vt.舔；舔吃
+lick | -vt.舔；舔吃
+alongside | -prep.在…旁边
+alongside | -prep.在…旁边
+insulate | -vt.使绝缘，使绝热
+insulate | -vt.使绝缘，使绝热
+yacht | -n.游艇，快艇
+yacht | -n.游艇，快艇
+tribute | -n.贡物；献礼，贡献
+tribute | -n.贡物；献礼，贡献
+Easter | -n. 复活节
+Easter | -n. 复活节
+fossil | -n.化石 a.化石的
+fossil | -n.化石 a.化石的
+budget | -n.预算，预算案
+budget | -n.预算，预算案
+budget | -n.预算，预算案
+catholic | -a.天主教的 n.天主教徒
+catholic | -a.天主教的 n.天主教徒
+negotiate | -vi.谈判，交涉，议定
+negotiate | -vi.谈判，交涉，议定
+advent | -n. 来到,来临
+advent | -n. 来到,来临
+adjoin | -vt.贴近，毗连；靠近
+adjoin | -vt.贴近，毗连；靠近
+garment | -n.衣服；服装，衣着
+garment | -n.衣服；服装，衣着
+survival | -n.幸存，残存；幸存者
+survival | -n.幸存，残存；幸存者
+fax | -n. 传真 vt. 传真
+fax | -n. 传真 vt. 传真
+sturdy | -a.坚定的；牢固的
+sturdy | -a.坚定的；牢固的
+cue | -n. 开端,线索,发辫,长队
+cue | -n. 开端,线索,发辫,长队
+toss | -vi.翻来复去
+toss | -vi.翻来复去
+Pendulum | -n.(钟等的)摆
+Pendulum | -n.(钟等的)摆
+repel | -vt.拒绝；使厌恶
+repel | -vt.拒绝；使厌恶
+exotic | -a.异国的,外来的 n.外来物,舶来品
+exotic | -a.异国的,外来的 n.外来物,舶来品
+haul | -vt.拖曳；拖运
+haul | -vt.拖曳；拖运
+denial | -n.否定；拒绝相信
+advent | -n. 来到,来临
+clarity | -n. 清楚,透明
+confidential | -a.秘密的；亲信的
+purity | -n.纯净；纯洁；纯度

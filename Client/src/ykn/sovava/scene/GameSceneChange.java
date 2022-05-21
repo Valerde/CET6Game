@@ -1,9 +1,9 @@
 package ykn.sovava.scene;
 
 import javafx.application.Platform;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import ykn.sovava.Director;
 import ykn.sovava.Tools.ScoreStatus;
@@ -16,28 +16,16 @@ import ykn.sovava.Tools.WriteWA;
  * @author: ykn
  * @date: 2022年05月21日 16:02
  **/
-public abstract class GameSceneChange extends GameScene{
-//    public Label label;//TODO 把这个改为Canvas
-//    public TextField textField;
-//    public Label labelResult;
-//    public Label labelTranslation;
-//    public Label playerInfo;
-//    public Label scoreLabel;
-//    public Button readyButton;
+public abstract class GameSceneChange extends GameScene {
     public int myScore;
     public int otherScore;
-
+    public double Y = 20;
+    public double speed = 1.1;
     public GameSceneChange(Stage stage) {
         super(stage);
-//        this.label = label;
-//        this.textField = textField;
-//        this.labelResult = labelResult;
-//        this.labelTranslation = labelTranslation;
-//        this.playerInfo = playerInfo;
-//        this.scoreLabel = scoreLabel;
-//        this.readyButton = readyButton;
-        myScore = otherScore= 10;
+        myScore = otherScore = 10;
     }
+
     public void set(WordsHandle wh, String s, String status) {
         if (status.equals(ScoreStatus.NO_ANSWER)) {
             WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
@@ -50,23 +38,34 @@ public abstract class GameSceneChange extends GameScene{
             otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
         }
         myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
-        label.setText(wh.getEnglishIncomplete());
         labelTranslation.setText(wh.getTranslation());
         scoreLabel.setText(myScore + " : " + otherScore);
-        label.setLayoutY(0);
-        label.setLayoutX(175 - label.getWidth() / 2);
-
     }
 
     public void set(WordsHandle wh) {
-        label.setText(wh.getEnglishIncomplete());
         labelTranslation.setText(wh.getTranslation());
         scoreLabel.setText(myScore + " : " + otherScore);
-        label.setLayoutY(0);
-        label.setLayoutX(175 - label.getWidth() / 2);
     }
 
     public void set(Boolean flag) {
         Director.getInstance().gameOver(flag);
+    }
+
+    /**
+     * Description: 每帧绘图
+     * @author: ykn
+     * @date: 2022/5/22 0:24
+     * @param s: incomplete
+     * @return: void
+     */
+    public void paint( String s) {
+        graphicsContext.drawImage(new Image("/image/background.png"),0,0,350,700);
+        graphicsContext.drawImage(new Image("/image/border.png"),50,Y-42,260,71);
+        graphicsContext.setFill(Color.GREEN);
+        graphicsContext.setFont(new Font(30));
+        graphicsContext.fillText(s, 95, Y);
+        speed+=0.0002;
+        Y += speed;
+        //System.out.println(speed);
     }
 }

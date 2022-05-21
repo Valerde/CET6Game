@@ -1,19 +1,16 @@
-package ykn.sovava.scene;
+package ykn.sovava;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import ykn.sovava.Director;
 import ykn.sovava.Tools.GetIP;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
 import ykn.sovava.Tools.WriteWA;
-
+import ykn.sovava.scene.GameSceneChange;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,14 +29,14 @@ public class MyClient extends GameSceneChange implements Runnable {
     public PrintStream ps;
     public BufferedReader br;
     public String myAnswer;
-    public int Y = 0;
-    public TextThread th;
     public static WordsHandle wh;
     public Boolean f = false;
+    private Refresh refresh;
+    private boolean running = true;
 
     public MyClient(Stage stage) {
-
         super(stage);
+        refresh = new Refresh();
         try {
             s = new Socket(GetIP.getRealIP(), 12345);
             ps = new PrintStream(s.getOutputStream());
@@ -66,9 +63,7 @@ public class MyClient extends GameSceneChange implements Runnable {
                     myAnswer = textField.getText();
                     sendMSG(wh, myAnswer);
                 }
-                if (textField != null)
-                    textField.clear();
-
+                if (textField != null) textField.clear();
             }
         });
         //监听服务器发来的开始信号
@@ -87,7 +82,7 @@ public class MyClient extends GameSceneChange implements Runnable {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                client.ps.println("over");
+                ps.println("over");
                 System.exit(0);
             }
         });
@@ -114,8 +109,9 @@ public class MyClient extends GameSceneChange implements Runnable {
                 Platform.runLater(() -> {
                     set(wh);
                 });
-                th = new TextThread();
-                th.start();
+                Y = 20;
+                running = true;
+                refresh.start();
             } else {
                 switch (strs[0]) {
                     case ScoreStatus.ADD_ONE_POINT:
@@ -124,8 +120,9 @@ public class MyClient extends GameSceneChange implements Runnable {
                         Platform.runLater(() -> {
                             set(wh, strs[2], strs[0]);
                         });
-                        th = new TextThread();
-                        th.start();
+                        Y = 20;
+                        running = true;
+                        refresh.start();
                         break;
                     }
                     case ScoreStatus.WIN: {
@@ -182,74 +179,30 @@ public class MyClient extends GameSceneChange implements Runnable {
      */
     public void clear() {
         f = false;
-        label = null;
         textField = null;
         labelResult = null;
         labelTranslation = null;
         playerInfo = null;
         scoreLabel = null;
         readyButton = null;
+        canvas = null;
     }
-//    public void set(WordsHandle wh, String s, String status) {
-//        if (status.equals(ScoreStatus.NO_ANSWER)) {
-//            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
-//            Platform.runLater(() -> {
-//                labelResult.setText("Pass");
-//                labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
-//            });
-//            otherScore -= 1;
-//        } else {
-//            otherScore = Integer.parseInt(s.split("-")[1] + "0") / 10;
-//        }
-//        myScore = Integer.parseInt(s.split("-")[0] + "0") / 10;
-//        label.setText(wh.getEnglishIncomplete());
-//        labelTranslation.setText(wh.getTranslation());
-//        scoreLabel.setText(myScore + " : " + otherScore);
-//        label.setLayoutY(0);
-//        label.setLayoutX(175 - label.getWidth() / 2);
-//
-//    }
-//
-//    public void set(WordsHandle wh) {
-//        label.setText(wh.getEnglishIncomplete());
-//        labelTranslation.setText(wh.getTranslation());
-//        scoreLabel.setText(myScore + " : " + otherScore);
-//        label.setLayoutY(0);
-//        label.setLayoutX(175 - label.getWidth() / 2);
-//    }
-//
-//    public void set(Boolean flag) {
-//        Director.getInstance().gameOver(flag);
-//    }
-
-    private int time = 100;
 
     /**
-     * Description: 单词掉落子线程
-     *
-     * @author: ykn
-     * @date: 2022/5/21 14:17
+     * 刷新,Animation创建一个计时器,将在每一帧被调用
      */
-    public class TextThread extends Thread {
-        Boolean RUN = true;
-
-        public void run() {
-            Y = 0;
-            time += 100;
-            while (RUN && label != null) {
-                try {
-                    Thread.sleep(time);
-                    Y += 5;
-                    Platform.runLater(() -> {
-                        if (label != null)
-                            label.setLayoutY(Y);
-                    });
-                    if (Y >= 700) {
-                        ps.println(ScoreStatus.NO_ANSWER);
-                    }
-                } catch (Exception ex) {
+    private class Refresh extends AnimationTimer {
+        @Override
+        public void handle(long now) {
+            if (running) {
+                paint(wh.getEnglishIncomplete());
+                if (Y >= 700) {
+                    ps.println(ScoreStatus.NO_ANSWER);
+                    running = false;
+                    this.stop();
                 }
             }
+
         }
     }
 

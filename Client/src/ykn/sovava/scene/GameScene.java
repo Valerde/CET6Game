@@ -1,13 +1,16 @@
 package ykn.sovava.scene;
 
-import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.WindowEvent;
 import ykn.sovava.Director;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ykn.sovava.MyClient;
+
+import java.awt.*;
 
 /**
  * description: 游戏界面初始值
@@ -19,27 +22,22 @@ import javafx.stage.Stage;
 public abstract class GameScene {
 
     public Stage stage;
-    public Label label;
     public TextField textField;
     public Label labelResult;
     public Label labelTranslation;
     public Label playerInfo;
     public Label scoreLabel;
     public Button readyButton;
-    MyClient client;
-
+    public Canvas canvas;
+    public GraphicsContext graphicsContext;
 
     GameScene(Stage stage) {
-
-        //label 用于显示残缺的英文单词
         this.stage = stage;
-        label = new Label("incomplete word");
-        label.setStyle("-fx-border-width: 3px;-fx-alignment: center;-fx-font-size: 25;-fx-border-radius: 15;-fx-border-color: blue");
-        label.setPrefHeight(55);
-        label.setPrefWidth(250);
-        label.setLayoutY(0);
-        label.setLayoutX(50);
-
+        //掉落区
+        canvas = new Canvas(350, 700);
+        graphicsContext = canvas.getGraphicsContext2D();
+        canvas.setLayoutX(0);
+        canvas.setLayoutY(0);
 
         //输入区
         textField = new TextField();
@@ -87,16 +85,9 @@ public abstract class GameScene {
         readyButton.setPrefWidth(200);
         readyButton.setStyle("-fx-background-color: aqua;-fx-font-size: 24;-fx-alignment:center ");
 
-        AnchorPane root = new AnchorPane(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
+        AnchorPane root = new AnchorPane(textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton, canvas);
         stage.getScene().setRoot(root);
         stage.show();
-        //TODO change here
-//        client = new MyClient(label, textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton);
-//        Thread t = new Thread(client);
-//        t.start();
-
-
-
     }
 
 }

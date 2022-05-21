@@ -116,9 +116,9 @@ public class GetWords {
         StringBuilder handledEnglish = new StringBuilder("");
         for (int i = 0; i < english.length(); i++) {
             if (i == i1 || i == i2) {
-                handledEnglish.append(english.charAt(i));
+                handledEnglish.append(english.charAt(i)+" ");
             } else {
-                handledEnglish.append("_");
+                handledEnglish.append("_ ");
             }
         }
 
