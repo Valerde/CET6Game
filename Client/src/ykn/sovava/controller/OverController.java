@@ -37,6 +37,6 @@ public class OverController {
 
     @FXML
     void clickToLookWA(ActionEvent event) throws IOException {
-        Runtime.getRuntime().exec("D:\\yangkainan\\ykn\\JavaLearn\\CET6\\haha.txt");
+        Director.getInstance().lookWA();
     }
 }

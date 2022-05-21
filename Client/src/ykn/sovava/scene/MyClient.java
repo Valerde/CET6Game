@@ -148,6 +148,7 @@ public class MyClient implements Runnable {
 
     private void set(WordsHandle wh, String s, String status) {
         if (status.equals(ScoreStatus.KEEP_POINT)) {
+            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
                 labelResult.setText("Pass");
                 labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");

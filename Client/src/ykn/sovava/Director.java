@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import ykn.sovava.scene.GameOver;
 import ykn.sovava.scene.GameScene;
 import ykn.sovava.scene.Index;
+import ykn.sovava.scene.LookWAScene;
 
 /**
  * className: ykn.sovava.Director
@@ -52,10 +53,15 @@ public class Director {
 
     public void gameStart() {
         gameScene.init(stage);
+        //LookWAScene.load(stage);
     }
 
     public void gameOver(boolean success) {
         gameScene.clear();
         GameOver.load(stage,success);
+    }
+
+    public void lookWA(){
+
     }
 }
