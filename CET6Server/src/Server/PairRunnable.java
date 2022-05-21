@@ -2,6 +2,7 @@ package Server;
 
 import Tools.ScoreStatus;
 import getWords.GetWords;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +13,7 @@ import java.util.List;
 
 /**
  * description: 一个对局是一个线程, 在线程中继续管理两个线程
+ *
  * @className: PairRunnable
  * @author: ykn
  * @date: 2022/5/17
@@ -59,10 +61,14 @@ public class PairRunnable {
 
         Boolean run = true;
 
+        /**
+         * Description: 内部类,每个对象为一个玩家,一个对局内只有两个玩家。
+         * @author: ykn
+         * @date: 2022/5/21 15:11
+         */
         public Player(Socket s) throws IOException {
             ps = new PrintStream(s.getOutputStream());
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-
         }
 
         @Override
@@ -97,23 +103,14 @@ public class PairRunnable {
 
         /**
          * Description: 对客户端发来的消息进行判断
+         *
+         * @param msg: 客户端传过来的消息
          * @author: ykn
          * @date: 2022/5/21 14:25
-         * @param msg: 客户端传过来的消息
          * @return: void
          */
         public void judge(String msg) {
             switch (msg) {
-
-                case ScoreStatus.REDUCT_ONR_POINT: {
-                    String word = getWords.OneWordMsgToTrans();
-                    this.score -= 1;
-                    for (Player p : playerList) {
-                        p.ps.println("WORD:" + word + ": ");
-                        p.ps.println(ScoreStatus.REDUCT_ONR_POINT + ": :" + p.score + "-" + p.otherSide.score);
-                    }
-                    break;
-                }
 
                 case ScoreStatus.ADD_ONE_POINT: {
                     String word = getWords.OneWordMsgToTrans();
@@ -128,6 +125,16 @@ public class PairRunnable {
                 case ScoreStatus.REDUCT_TWO_POINT: {
                     String word = getWords.OneWordMsgToTrans();
                     this.score -= 2;
+                    if (this.score <= 0) {
+                        for (Player p : playerList) {
+                            if (p.equals(this)) {
+                                this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
+                            } else {
+                                p.ps.println(ScoreStatus.WIN + ": :" + p.score + "-" + p.otherSide.score);
+                            }
+                        }
+                        break;
+                    }
                     for (Player p : playerList) {
 
                         p.ps.println("WORD:" + word + ": ");
@@ -137,17 +144,11 @@ public class PairRunnable {
                     break;
                 }
                 case ScoreStatus.LOSE: {
-                    for (Player p : playerList) {
-                        if (p.equals(this)) {
-                            this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
-                        } else {
-                            p.ps.println(ScoreStatus.WIN + ": :" + p.score + "-" + p.otherSide.score);
-                        }
-                    }
                     break;
                 }
                 case ScoreStatus.NO_ANSWER: {
                     this.score -= 1;
+                    if (judgeIfLose()) break;
                     this.ps.println("WORD:" + words.get(count) + ": ");
                     count++;
                     this.ps.println(ScoreStatus.NO_ANSWER + ": :" + this.score + "-" + this.otherSide.score);
@@ -157,7 +158,20 @@ public class PairRunnable {
 
             }//switch
         }
+        /**
+         * Description: 每次扣分后，判断该玩家是否已经输了，当所有玩家都是0分一下时，均失败。
+         * @author: ykn
+         * @date: 2022/5/21 15:12
+         * @return: java.lang.Boolean
+         */
+        private Boolean judgeIfLose() {
+            if (this.score <= 0) {
+                this.ps.println(ScoreStatus.LOSE + ": :" + "0" + "-" + this.otherSide.score);
+                this.otherSide.ps.println(ScoreStatus.WIN + ": :" + this.otherSide.score + "-" + this.score);
+                return true;
+            }
+            return false;
+        }
+
     }
-
-
 }

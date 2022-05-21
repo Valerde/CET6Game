@@ -10,6 +10,7 @@ import ykn.sovava.Tools.GetIP;
 import ykn.sovava.Tools.ScoreStatus;
 import ykn.sovava.Tools.WordsHandle;
 import ykn.sovava.Tools.WriteWA;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,6 +19,7 @@ import java.net.Socket;
 
 /**
  * description: 客户端主要逻辑区
+ *
  * @className: GameSceneUI
  * @author: ykn
  * @date: 2022/5/19
@@ -45,7 +47,6 @@ public class MyClient implements Runnable {
     public MyClient(Label label, TextField textField,
                     Label labelResult, Label labelTranslation, Label playerInfo, Label scoreLabel, Button readyButton) {
         super();
-
         this.label = label;
         this.textField = textField;
         this.labelResult = labelResult;
@@ -66,24 +67,26 @@ public class MyClient implements Runnable {
 
     @Override
     public void run() {
-        set();
-        textField.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) { //判断是否按下回车
-                event.consume();
-                myAnswer = textField.getText();
-                textField.clear();
-                sendMSG(wh, myAnswer);
-            }
-        });
-
+        //准备按钮
         readyButton.setOnAction(event -> {
             ps.println("ok");
             Platform.runLater(() -> {
                 readyButton.setText("already……");
-
             });
         });
+        //输入框
+        textField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) { //判断是否按下回车
+                event.consume();
+                if (f) {
+                    myAnswer = textField.getText();
+                    sendMSG(wh, myAnswer);
+                }
+                textField.clear();
 
+            }
+        });
+        //监听开始
         try {
             if (br.readLine().equals("herewego")) {
                 f = true;
@@ -95,6 +98,7 @@ public class MyClient implements Runnable {
             e.printStackTrace();
         }
 
+
         while (f) {
             getWords();
         }
@@ -103,33 +107,31 @@ public class MyClient implements Runnable {
 
     /**
      * Description: 获得从服务器发来的消息并判定
+     *
      * @author: ykn
      * @date: 2022/5/21 14:18
      * @return: void
      */
     private void getWords() {
         try {
-            String msg = null;
-            msg = br.readLine();
+            String msg = br.readLine();
             String[] strs = msg.split(":");
             if (strs[0].equals("WORD")) {
                 wh = new WordsHandle(strs[1]);
                 Platform.runLater(() -> {
                     set(wh);
                 });
-
                 th = new TextThread();
                 th.start();
             } else {
                 switch (strs[0]) {
                     case ScoreStatus.ADD_ONE_POINT:
                     case ScoreStatus.NO_ANSWER:
-                    case ScoreStatus.REDUCT_ONR_POINT:
+
                     case ScoreStatus.REDUCT_TWO_POINT: {
                         Platform.runLater(() -> {
                             set(wh, strs[2], strs[0]);
                         });
-                        sendLose(strs[0]);
                         th = new TextThread();
                         th.start();
                         break;
@@ -182,18 +184,11 @@ public class MyClient implements Runnable {
         Director.getInstance().gameOver(flag);
     }
 
-    public void set() {
-        label.setText("incomplete word");
-        labelTranslation.setText("这里是翻译");
-        scoreLabel.setText(10 + " : " + 10);
-        label.setLayoutY(0);
-        label.setLayoutX(50);
-    }
-
     private int time = 100;
 
     /**
      * Description: 单词掉落子线程
+     *
      * @author: ykn
      * @date: 2022/5/21 14:17
      */
@@ -221,10 +216,11 @@ public class MyClient implements Runnable {
 
     /**
      * Description: 每次反馈服务器
+     *
+     * @param wh:     WordHandle
+     * @param answer: 玩家输入的答案
      * @author: ykn
      * @date: 2022/5/21 14:16
-     * @param wh: WordHandle
-     * @param answer:  玩家输入的答案
      * @return: void
      */
     public void sendMSG(WordsHandle wh, String answer) {
@@ -244,20 +240,4 @@ public class MyClient implements Runnable {
         }
     }
 
-    /**
-     * Description: 判定游戏是否结束
-     * @author: ykn
-     * @date: 2022/5/21 14:14
-     * @param s: 来自于ScoreStatus
-     * @return: void
-     */
-    public void sendLose(String s) {
-        if (s.equals(ScoreStatus.REDUCT_ONR_POINT) || s.equals(ScoreStatus.REDUCT_TWO_POINT)
-                || s.equals(ScoreStatus.NO_ANSWER)) {
-            if (myScore <= 0) {
-                ps.println(ScoreStatus.LOSE);
-            }
-        }
-
-    }
 }

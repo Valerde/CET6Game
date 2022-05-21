@@ -103,3 +103,66 @@ successor | -n.继承人，继任者
 nourish | -vt.提供养分，养育
 ballet | -n.芭蕾舞；舞剧
 majesty | -n.威严，尊严；陛下
+metropolitan | -a.主要都市的n.大主教
+hostage | -n.人质，抵押品
+cathedral | -n.总教堂；大教堂
+terrace | -n.平台，阳台，露台
+instrumental | -a.仪器的；有帮助的
+reap | -vt.&vi.收割，收获
+flee | -vi.逃走 vt.逃避
+corrupt | -vt.贿赂 a.腐败的
+spectator | -n.参观者，观众
+quantify | -vt.确定…的数量
+practicable | -a.能实行的；适用的
+doom | -n.命运，毁灭 vt.注定
+overthrow | -vt.推翻 n.推翻，瓦解
+foul | -a.肮脏的；丑恶的
+realistic | -a.现实的；现实主义的
+subjective | -a. 主观的,个人的
+appreciable | -a.可估价的；可察觉的
+dome | -n.圆屋顶，拱顶
+initiative | -a.创始的 n.第一步
+initiative | -a.创始的 n.第一步
+bewilder | -vt.迷惑，把…弄糊涂
+bewilder | -vt.迷惑，把…弄糊涂
+presumably | -ad.推测起来，大概
+converge | -vi. 聚合,集中于一点
+assimilate | -vt. 使同化,吸收,比较
+degrade | -vt.使降给；使堕落
+historian | -n.历史学家；编史家
+imitation | -n.仿制品，伪制物
+tuition | -n.教，教诲；学费
+intervene | -vi.干涉，干预；播进
+imaginative | -a. 想象的,虚构的
+ignite | -vt.引燃 vi.着火
+overthrow | -vt.推翻 n.推翻，瓦解
+contempt | -n.轻蔑；藐视
+oath | -n.誓言，誓约，宣誓
+humanity | -n.人类；人性，人情
+indulge | -vt.放纵(感情)vi.纵情
+indulge | -vt.放纵(感情)vi.纵情
+commodity | -n.日用品，商品，物品
+verge | -n.边缘，边界，界限
+Pope | -n.(罗马天主教的)教皇
+compliment | -n.问候 vt.赞美，祝贺
+envisage | -vt. 面对,正视,想象
+pastime | -n.消遣，娱乐
+insane | -a. 患精神病的,不理智的
+eclipse | -n.(日，月)食
+tribute | -n.贡物；献礼，贡献
+tribute | -n.贡物；献礼，贡献
+recipient | -n. 接受者，接收者
+coincide | -vi.相符合；相巧合
+apt | -a.恰当的；聪明的
+watt | -n.瓦(特)
+hurl | -vt.猛投 vi.猛冲
+compile | -vt.编辑，编制，搜集
+assert | -vt.断言，宣称；维护
+enlighten | -vt.启发，开导；启蒙
+senator | -n.参议员；评议员
+eternal | -n.永久的；不朽的
+savage | -a.未开发的,野蛮
+whereby | -ad.靠什么；靠那个
+clash | -n.碰撞声；抵触，冲突
+denounce | -vt.谴责，声讨；告发
+supersonic | -a.超声的，超声速的

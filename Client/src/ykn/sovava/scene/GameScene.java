@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 /**
  * description: 游戏界面初始值
+ *
  * @className: GameScene
  * @author: ykn
  * @date: 2022/5/18
@@ -31,12 +32,12 @@ public class GameScene {
 
         //label 用于显示残缺的英文单词
         this.stage = stage;
-        label = new Label("f__e");
+        label = new Label("incomplete word");
         label.setStyle("-fx-border-width: 3px;-fx-alignment: center;-fx-font-size: 25;-fx-border-radius: 15;-fx-border-color: blue");
         label.setPrefHeight(55);
         label.setPrefWidth(250);
         label.setLayoutY(0);
-        label.setLayoutX(175 - label.getWidth() / 2);
+        label.setLayoutX(50);
 
 
         //输入区
@@ -45,7 +46,7 @@ public class GameScene {
         textField.setLayoutX(350);
         textField.setLayoutY(500);
 
-        labelResult = new Label("right");
+        labelResult = new Label();
         labelResult.setLayoutX(350);
         labelResult.setLayoutY(300);
         labelResult.setPrefWidth(200);
@@ -53,7 +54,7 @@ public class GameScene {
         labelResult.setText("----");
         labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
 
-        labelTranslation = new Label("CF站怪帮教亏kg基层抗不");
+        labelTranslation = new Label("这里是翻译");
         labelTranslation.setPrefWidth(Director.WIDTH);
         labelTranslation.setPrefHeight(55);
         labelTranslation.setLayoutY(700);
@@ -68,7 +69,7 @@ public class GameScene {
         playerInfo.setPrefHeight(50);
         playerInfo.setStyle("-fx-border-width: 3px;-fx-border-color: green;-fx-border-radius: 10;-fx-font-size: 18;-fx-alignment: center");
 
-        scoreLabel = new Label("13 : 4");
+        scoreLabel = new Label(10 + " : " + 10);
         scoreLabel.setLayoutX(350);
         scoreLabel.setLayoutX(400);
         scoreLabel.setLayoutY(100);
@@ -106,6 +107,7 @@ public class GameScene {
 
     /**
      * Description: 游戏结束清除界面
+     *
      * @author: ykn
      * @date: 2022/5/21 14:13
      * @return: void
