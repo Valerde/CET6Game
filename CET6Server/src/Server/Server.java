@@ -1,17 +1,14 @@
 package Server;
 
-import getWords.GetWords;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
+ * description: 服务器总逻辑
  * @className: Server
- * @description:
  * @author: ykn
  * @date: 2022/5/17
  **/

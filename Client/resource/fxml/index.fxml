@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ykn.sovava.controller.IndexController">
    <children>
       <ImageView fitHeight="431.0" fitWidth="664.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
@@ -16,7 +15,7 @@
             <Image url="@../image/logo.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="label" layoutX="240.0" layoutY="692.0" prefHeight="75.0" prefWidth="161.0" text="  游 客 登 录" textAlignment="RIGHT">
+      <Label fx:id="label" layoutX="241.0" layoutY="637.0" prefHeight="75.0" prefWidth="161.0" text="  游 客 登 录" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>

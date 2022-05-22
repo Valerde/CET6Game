@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * description: 一个对局是一个线程, 在线程中继续管理两个线程
+ * description: 一个对局是一个线程, 在线程中继续管理两个玩家线程
  *
  * @className: PairRunnable
  * @author: ykn

@@ -7,21 +7,16 @@ package ykn.sovava.Tools;
  * @date: 2022/5/17
  **/
 public class WordsHandle {
-    /**
-     * @description: 单词组合,先翻译后单词
-     */
+
     private String english = null;
     private String translation = null;
     private String englishIncomplete = null;
 
-//    private String english = "fine";
-//    private String translation = "好的";
-//    private String englishIncomplete = "f__e";
-
     /**
-     * @description: 传过来单词与翻译
+     * Description: 构造函数,
      * @author: ykn
-     * @time: 2022/5/17 14:12
+     * @date: 2022/5/22 11:46
+     * @param msg:msg格式为  english|translation|englishIncomplete
      */
     public WordsHandle(String msg) {
         String[] words = msg.split("\\|");

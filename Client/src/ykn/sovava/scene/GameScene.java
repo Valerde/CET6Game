@@ -8,9 +8,6 @@ import ykn.sovava.Director;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ykn.sovava.MyClient;
-
-import java.awt.*;
 
 /**
  * description: 游戏界面初始值
@@ -44,7 +41,7 @@ public abstract class GameScene {
         textField.setPromptText("输入你的答案");
         textField.setLayoutX(350);
         textField.setLayoutY(500);
-
+        //正确与否提示区
         labelResult = new Label();
         labelResult.setLayoutX(350);
         labelResult.setLayoutY(300);
@@ -52,14 +49,14 @@ public abstract class GameScene {
         labelResult.setPrefHeight(50);
         labelResult.setText("----");
         labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
-
+        //底部翻译区
         labelTranslation = new Label("这里是翻译");
         labelTranslation.setPrefWidth(Director.WIDTH);
         labelTranslation.setPrefHeight(55);
         labelTranslation.setLayoutY(700);
         labelTranslation.setStyle("-fx-border-width: 3px;-fx-border-color: red;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");
         labelTranslation.setLayoutX(-10);
-
+        //双方显示区
         playerInfo = new Label("己方                    对方");
         playerInfo.setLayoutX(350);
         playerInfo.setLayoutX(350);
@@ -67,7 +64,7 @@ public abstract class GameScene {
         playerInfo.setPrefWidth(200);
         playerInfo.setPrefHeight(50);
         playerInfo.setStyle("-fx-border-width: 3px;-fx-border-color: green;-fx-border-radius: 10;-fx-font-size: 18;-fx-alignment: center");
-
+        //比分显示区
         scoreLabel = new Label(10 + " : " + 10);
         scoreLabel.setLayoutX(350);
         scoreLabel.setLayoutX(400);
@@ -75,8 +72,7 @@ public abstract class GameScene {
         scoreLabel.setPrefWidth(100);
         scoreLabel.setPrefHeight(50);
         scoreLabel.setStyle("-fx-border-radius: 10;-fx-font-size: 18;-fx-alignment: center");
-
-
+        //开始按钮
         readyButton = new Button();
         readyButton.setText("ready");
         readyButton.setLayoutY(600);
@@ -84,7 +80,7 @@ public abstract class GameScene {
         readyButton.setPrefHeight(50);
         readyButton.setPrefWidth(200);
         readyButton.setStyle("-fx-background-color: aqua;-fx-font-size: 24;-fx-alignment:center ");
-
+        //锚点布局
         AnchorPane root = new AnchorPane(textField, labelResult, labelTranslation, playerInfo, scoreLabel, readyButton, canvas);
         stage.getScene().setRoot(root);
         stage.show();

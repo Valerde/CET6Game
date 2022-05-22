@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * description: 查看记错本controller
  * @className: LookWA
- * @description:
  * @author: ykn
  * @date: 2022/5/21
  **/

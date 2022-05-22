@@ -21,7 +21,7 @@ public class GameOver {
             FXMLLoader fxmlLoader = new FXMLLoader(Index.class.getResource("/fxml/gameover.fxml"));
             Parent root = fxmlLoader.load();
             OverController OverController = fxmlLoader.getController();
-            if (success){
+            if (success){//预设加载失败界面,如果游戏胜利则更改配图
                 OverController.flagSuccess();
             }
             Platform.runLater(()->{

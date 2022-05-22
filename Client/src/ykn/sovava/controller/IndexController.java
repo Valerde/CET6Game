@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import ykn.sovava.Director;
 
 /**
+ * description: 开始界面controller
  * @className: IndexController
- * @description:
  * @author: ykn
  * @date: 2022/5/19
  **/

@@ -18,7 +18,6 @@ public class GetRandom {
         return rd.nextDouble() + 0.02;
     }
 
-
     public static Integer getRandom(int range) {
         return rd.nextInt(range);
     }

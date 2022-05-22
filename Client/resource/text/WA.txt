@@ -703,3 +703,113 @@ advent | -n. 来到,来临
 clarity | -n. 清楚,透明
 confidential | -a.秘密的；亲信的
 purity | -n.纯净；纯洁；纯度
+merge | -vt. 使合并,使并为一体
+merge | -vt. 使合并,使并为一体
+commend | -vt.称赞，表扬；推荐
+commend | -vt.称赞，表扬；推荐
+reckless | -a.粗心大意的；鲁莽的
+reckless | -a.粗心大意的；鲁莽的
+snatch | -n. 抢夺,攫取,片段 vt. 夺取,攫取
+snatch | -n. 抢夺,攫取,片段 vt. 夺取,攫取
+republican | -a.共和国的
+republican | -a.共和国的
+shaft | -n.(工具的)柄，杆状物
+shaft | -n.(工具的)柄，杆状物
+signify | -vt.表示，意味着
+signify | -vt.表示，意味着
+ivory | -n.象牙；牙质；乳白色
+ivory | -n.象牙；牙质；乳白色
+Permissible | -a. 可允许的
+Permissible | -a. 可允许的
+tackle | -vt.解决，对付 n.用具
+tackle | -vt.解决，对付 n.用具
+duplicate | -n.复制品 vt.复制
+barely | -ad.仅仅，勉强
+jury | -n.陪审团；评奖团
+couch | -n.睡椅，长沙发椅
+identity | -n. 相同,身分,恒等式,特性,一致
+prayer | -n.祈祷，祈求
+prayer | -n.祈祷，祈求
+cripple | -n.跛子；残废的人
+cripple | -n.跛子；残废的人
+summon | -vt.召唤；鼓起(勇气)
+summon | -vt.召唤；鼓起(勇气)
+ethics | -n. 道德规范
+ethics | -n. 道德规范
+portray | -vt. 描绘,描写,描写...的肖像,
+portray | -vt. 描绘,描写,描写...的肖像,
+tolerant | -a.容忍的；有耐力的
+tolerant | -a.容忍的；有耐力的
+scrutiny | -n. 细看,仔细检查,监视
+scrutiny | -n. 细看,仔细检查,监视
+competence | -n. 胜任,资格,能力
+competence | -n. 胜任,资格,能力
+concession | -n.让步，迁就
+concession | -n.让步，迁就
+gaol | -n. 监禁,监狱 vt. 监禁
+apt | -a.恰当的；聪明的
+apt | -a.恰当的；聪明的
+gaol | -n. 监禁,监狱 vt. 监禁
+pursuit | -n.追赶；追求；事务
+pursuit | -n.追赶；追求；事务
+alert | -a.警惕的；活跃的
+alert | -a.警惕的；活跃的
+extract | -vt.取出；榨取 n.摘录
+extract | -vt.取出；榨取 n.摘录
+humanity | -n.人类；人性，人情
+humanity | -n.人类；人性，人情
+fantastic | -a.空想的；奇异的
+fantastic | -a.空想的；奇异的
+indicative | -a.指示的；陈述的
+indicative | -a.指示的；陈述的
+jury | -n.陪审团；评奖团
+jury | -n.陪审团；评奖团
+consultant | -n. 顾问,商议者
+consultant | -n. 顾问,商议者
+discrete | -a. 不连续的, 离散的
+discrete | -a. 不连续的, 离散的
+immerse | -vt.沉浸；给…施洗礼
+immerse | -vt.沉浸；给…施洗礼
+offence | -n.犯罪，犯规；冒犯
+offence | -n.犯罪，犯规；冒犯
+dubious | -a. 可疑的,不确定的
+dubious | -a. 可疑的,不确定的
+stride | -vi.大踏步走 n.大步
+stride | -vi.大踏步走 n.大步
+brisk | -a.活泼的；清新的
+brisk | -a.活泼的；清新的
+jury | -n.陪审团；评奖团
+jury | -n.陪审团；评奖团
+literacy | -n. 读写能力,识字
+literacy | -n. 读写能力,识字
+predominant | -a.占优势的；主要的
+predominant | -a.占优势的；主要的
+fuse | -n.保险丝，导火线
+fuse | -n.保险丝，导火线
+pedestrian | -n.行人，步行者
+pedestrian | -n.行人，步行者
+sensation | -n.感觉，知觉；轰动
+sensation | -n.感觉，知觉；轰动
+facilitate | -vt.使容易；助长
+facilitate | -vt.使容易；助长
+suicide | -n.&vi.&vt.自杀
+suicide | -n.&vi.&vt.自杀
+prey | -vi.猎物 vi.捕获
+prey | -vi.猎物 vi.捕获
+republican | -a.共和国的
+republican | -a.共和国的
+fluctuate | -vi.波动 vt.使波动
+fluctuate | -vi.波动 vt.使波动
+handbook | -n.手册，便览，指南
+handbook | -n.手册，便览，指南
+verdict | -n. 裁决,结论,定论,判断
+verdict | -n. 裁决,结论,定论,判断
+void | -a.空的；无效的
+void | -a.空的；无效的
+ethnic | -a.民族特有的
+ethnic | -a.民族特有的
+currency | -n.通货；通用；市价
+trifle | -n.小事，琐事；少许
+trifle | -n.小事，琐事；少许
+distract | -vt.分散(心思)；打扰
+distract | -vt.分散(心思)；打扰

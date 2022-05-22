@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
+ * description: 记错本界面
  * @className: LookWAScene
- * @description:
  * @author: ykn
  * @date: 2022/5/21
  **/

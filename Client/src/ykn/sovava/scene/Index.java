@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
+ * description: 首页
  * @className: Index
- * @description:
  * @author: ykn
  * @date: 2022/5/18
  **/
