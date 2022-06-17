@@ -44,10 +44,7 @@ public class MyClient extends GameSceneChange implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
-    @Override
-    public void run() {
         //准备按钮
         readyButton.setOnAction(event -> {
             ps.println("ok");
@@ -67,16 +64,7 @@ public class MyClient extends GameSceneChange implements Runnable {
             }
         });
         //监听服务器发来的开始信号
-        try {
-            if (br.readLine().equals("herewego")) {
-                f = true;
-                Platform.runLater(() -> {
-                    readyButton.setText("playing……");
-                });
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         //关闭UI线程时同时关闭各子线程
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -87,6 +75,21 @@ public class MyClient extends GameSceneChange implements Runnable {
             }
         });
 
+    }
+
+    @Override
+    public void run() {
+
+        try {
+            if (br.readLine().equals("herewego")) {
+                f = true;
+                Platform.runLater(() -> {
+                    readyButton.setText("playing……");
+                });
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         while (f) {
             getWords();
         }
@@ -160,7 +163,7 @@ public class MyClient extends GameSceneChange implements Runnable {
             });
         } else {
             ps.println(ScoreStatus.REDUCT_TWO_POINT);
-            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
+            ww.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
                 if (labelResult != null) {
                     labelResult.setText("Wrong");

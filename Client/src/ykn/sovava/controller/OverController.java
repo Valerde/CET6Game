@@ -23,20 +23,20 @@ public class OverController {
     private Button returnBack;
 
     @FXML
-    private Button lookWrongWord;
+private Button lookWrongWord;
 
-    public void flagSuccess() {
-        overImage.setImage(new Image("image/win.jpg"));
-    }
+public void flagSuccess() {
+    overImage.setImage(new Image("image/win.jpg"));
+}
 
 
-    @FXML
-    void clickToBack(ActionEvent event) {
-        Director.getInstance().gameStart();
-    }
+@FXML
+void clickToBack(ActionEvent event) {
+    Director.getInstance().gameStart();
+}
 
-    @FXML
-    void clickToLookWA(ActionEvent event) throws IOException {
-        Director.getInstance().lookWA();
-    }
+@FXML
+void clickToLookWA(ActionEvent event) throws IOException {
+    Director.getInstance().lookWA();
+}
 }

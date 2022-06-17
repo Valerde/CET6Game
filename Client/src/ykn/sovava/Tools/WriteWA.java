@@ -10,9 +10,12 @@ import java.io.IOException;
  * @date: 2022/5/20
  **/
 public class WriteWA {
-    public static void writeLineFile( String content){
+    public WriteWA() {
+    }
+
+    public void writeLineFile(String content){
         try {
-            FileOutputStream out = new FileOutputStream("D:\\yangkainan\\ykn\\JavaLearn\\CET6\\Client\\resource\\text\\WA.txt", true);
+            FileOutputStream out = new FileOutputStream(this.getClass().getResource("/text/WA.txt").getPath(), true);
             out.write(content.getBytes());
             out.close();
         } catch (IOException e) {

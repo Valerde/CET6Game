@@ -21,10 +21,11 @@ public abstract class GameSceneChange extends GameScene {
     public int otherScore;
     public double Y = 20;
     public double speed = 1.1;
-
+    public WriteWA ww;
     public GameSceneChange(Stage stage) {
         super(stage);
         myScore = otherScore = 10;
+        ww = new WriteWA();
     }
 
     /**
@@ -39,7 +40,7 @@ public abstract class GameSceneChange extends GameScene {
      */
     public void set(WordsHandle wh, String s, String status) {
         if (status.equals(ScoreStatus.NO_ANSWER)) {
-            WriteWA.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
+           ww.writeLineFile(wh.getEnglish() + " | " + wh.getTranslation() + "\n");
             Platform.runLater(() -> {
                 labelResult.setText("Miss");
                 labelResult.setStyle("-fx-border-width: 3px;-fx-border-color: yellow;-fx-border-radius: 10;-fx-font-size: 30;-fx-alignment: center");

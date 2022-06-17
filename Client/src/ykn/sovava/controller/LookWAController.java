@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * description: 查看记错本controller
+ *
  * @className: LookWA
  * @author: ykn
  * @date: 2022/5/21
@@ -29,7 +30,8 @@ public class LookWAController {
         Director.getInstance().gameStart();
     }
 
-    public void initialize(){
+    public  String fileName = this.getClass().getResource("/text/WA.txt").getPath();
+    public void initialize() {
         //List<String> wordsWA = readIn();
         area.setFont(new Font(20));
         area.setText(readIn());
@@ -37,12 +39,13 @@ public class LookWAController {
 
     /**
      * Description: 读入错误过的单词
+     *
      * @author: ykn
      * @date: 2022/5/21 14:21
      * @return: java.lang.String
      */
-    private String readIn()  {
-        File file = new File("D:\\yangkainan\\ykn\\JavaLearn\\CET6\\Client\\resource\\text\\WA.txt");
+    private String readIn() {
+        File file = new File(fileName);
         List<String> words = new ArrayList<>();
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();

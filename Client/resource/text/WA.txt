@@ -813,3 +813,122 @@ trifle | -n.小事，琐事；少许
 trifle | -n.小事，琐事；少许
 distract | -vt.分散(心思)；打扰
 distract | -vt.分散(心思)；打扰
+equator | -n.赤道，天球赤道
+equator | -n.赤道，天球赤道
+pledge | -n.誓言 vt.使发誓
+pledge | -n.誓言 vt.使发誓
+clarity | -n. 清楚,透明
+clarity | -n. 清楚,透明
+indignant | -a.愤慨的，义愤的
+indignant | -a.愤慨的，义愤的
+gallery | -n.长廊，游廊；画廊
+gallery | -n.长廊，游廊；画廊
+legislation | -n.立法；法规
+legislation | -n.立法；法规
+crucial | -a. 决定性的,重要的,严厉的
+crucial | -a. 决定性的,重要的,严厉的
+retail | -n.零售 a.零售的
+retail | -n.零售 a.零售的
+clearance | -n. 清除,解除,间隙
+clearance | -n. 清除,解除,间隙
+linear | -a.线的；长度的
+assimilate | -vt. 使同化,吸收,比较
+flee | -vi.逃走 vt.逃避
+originate | -vi.发源 vt.首创
+historian | -n.历史学家；编史家
+correspondent | -n.通信者；通讯员
+appreciable | -a.可估价的；可察觉的
+prolong | -vt.延长，拉长，拖延
+prolong | -vt.延长，拉长，拖延
+prolong | -vt.延长，拉长，拖延
+irrigation | -n.灌溉；冲洗法
+boycott | -vt.&n.联合抵制
+ponder | -vt.考虑 vi.沉思
+questionnaire | -n.调查表，征求意见表
+geology | -n.地质学；(某地)地质
+diminish | -vt.减少，减小，递减
+diminish | -vt.减少，减小，递减
+warfare | -n.战争，战争状态
+shrewd | -a. 精明的,敏锐的,机灵的
+lounge | -n.(旅馆等的)休息室
+ambiguous | -a.模棱两可的；分歧的
+locomotive | -a.运动的；机动
+spectacular | -a. 公开展示的,惊人的 n. 展览物
+versatile | -a.多方面的；通用的
+resent | -vt.对…不满，怨恨
+recite | -vt.&vi.背诵，朗诵
+earnings | -n.工资，收入；收益
+gene | -n. 基因,因子
+splash | -vt.溅泼 vi.泼水 n.溅
+spacious | -a.广阔的，广大的
+reproach | -vt.&n.责备，指责
+tablet | -n.碑，匾；药片
+tablet | -n.碑，匾；药片
+denote | -vt.指示，意味着
+denote | -vt.指示，意味着
+exotic | -a.异国的,外来的 n.外来物,舶来品
+exotic | -a.异国的,外来的 n.外来物,舶来品
+revive | -vt.&vi.苏醒；复兴
+revive | -vt.&vi.苏醒；复兴
+enrich | -vt.使富裕；使丰富
+enrich | -vt.使富裕；使丰富
+curb | -n. 抑制,勒马绳 vt. 抑制,束缚
+curb | -n. 抑制,勒马绳 vt. 抑制,束缚
+luminous | -a.发光的；光明的
+cylinder | -n.圆筒；柱(面)；汽缸
+acquaint | -vt.使认识，使了解
+rating | -n. 等级,评定结果，收视(听)率
+rating | -n. 等级,评定结果，收视(听)率
+rating | -n. 等级,评定结果，收视(听)率
+leaflet | -n.传单，活页；广告
+leaflet | -n.传单，活页；广告
+compliment | -n.问候 vt.赞美，祝贺
+compliment | -n.问候 vt.赞美，祝贺
+compliment | -n.问候 vt.赞美，祝贺
+obligation | -n.义务，职责，责任
+drainage | -n.排水；下水道
+catholic | -a.天主教的 n.天主教徒
+catholic | -a.天主教的 n.天主教徒
+myth | -n. 神话,虚构的事,虚构的人
+myth | -n. 神话,虚构的事,虚构的人
+haul | -vt.拖曳；拖运
+brutal | -a. 残忍的,野蛮的,不讲理的
+manipulate | -vt.操作；控制，手持
+tactics | -n.策略；战术，兵法
+foil | -n. 箔,金属薄片 vt. 贴箔于, 衬托
+contend | -vi.竞争 vt.坚决主张
+contend | -vi.竞争 vt.坚决主张
+ascribe | -vt.把…归于
+ascribe | -vt.把…归于
+turbulent | -a.骚动的，骚乱的
+turbulent | -a.骚动的，骚乱的
+propaganda | -n.宣传；宣传机构
+propaganda | -n.宣传；宣传机构
+grease | -n.动物脂，脂肪
+grease | -n.动物脂，脂肪
+exempt | -a. 免除的 vt. 使免除,豁免
+exempt | -a. 免除的 vt. 使免除,豁免
+ascribe | -vt.把…归于
+ascribe | -vt.把…归于
+appreciable | -a.可估价的；可察觉的
+appreciable | -a.可估价的；可察觉的
+propagate | -vt.繁殖；传播，普及
+propagate | -vt.繁殖；传播，普及
+paradise | -n.伊甸乐园；天堂
+paradise | -n.伊甸乐园；天堂
+media | -n. 媒体
+media | -n. 媒体
+endow | -vt.资助；赋予，授予
+endow | -vt.资助；赋予，授予
+adjoin | -vt.贴近，毗连；靠近
+adjoin | -vt.贴近，毗连；靠近
+dome | -n.圆屋顶，拱顶
+dome | -n.圆屋顶，拱顶
+subtle | -a.微妙的；精巧的
+subtle | -a.微妙的；精巧的
+fellowship | -n.伙伴关系；联谊会
+fellowship | -n.伙伴关系；联谊会
+reside | -vi.居住，驻扎；属于
+reside | -vi.居住，驻扎；属于
+petty | -a.细小的；器量小的
+petty | -a.细小的；器量小的

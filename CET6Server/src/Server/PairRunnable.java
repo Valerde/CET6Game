@@ -2,6 +2,7 @@ package Server;
 
 import Tools.ScoreStatus;
 import getWords.GetWords;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -74,7 +75,9 @@ public class PairRunnable {
         public void run() {
             while (run) {
                 try {
-                    msg = br.readLine()+"";
+
+                    msg = br.readLine() + "";
+
                     if (msg.equals("ok")) {
                         sign = true;
                     } else if (msg.equals("over")) {
@@ -94,8 +97,10 @@ public class PairRunnable {
                     }
                     word = getWords.OneWordMsgToTrans();
                     judge(msg);
-                } catch (IOException | InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
+                } catch (IOException e) {
+                    System.out.println("已下线");
                 }
 
             }
